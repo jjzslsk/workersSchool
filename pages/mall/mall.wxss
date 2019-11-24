@@ -1,0 +1,33 @@
+/* pages/mall/mall.wxss */
+
+.mall-img{width: 100%;}
+.mall-box {width: 100%;height: 100vh;background: #F5F5F5;}
+.scroll-area {height: 100%}
+
+.btn {
+  width: 50%;
+  margin-left: 25%;
+  height: 30px;
+  line-height: 30px;
+  background: #259b24;
+  color: #fff;
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.open-shop{
+    		background: linear-gradient(to bottom, #e77918 20%,#fff500 100%);
+    		position: absolute;
+    		z-index: 99;
+    		top: auto;
+    		bottom: 0.5rem;
+    		width: 50%;
+    		margin:0 25%;
+    		border-radius:20px;
+    		text-align: center;
+    		height: 2rem;
+    		line-height: 2rem;
+    		font-size: 1rem;
+    		font-weight: bold;
+}

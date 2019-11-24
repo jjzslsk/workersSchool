@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "editor/editor",
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/classify/classify",
+    "pages/logs/logs",
+    "pages/lookWorkers/lookWorkers",
+    "pages/me/me",
+    "pages/bindPhone/bindPhone",
+    "pages/mall/mall"
+  ],
+    "tabBar": {
+      "color": "#666666",
+      "selectedColor": "#41CC8E",
+      "backgroundColor": "#f8f8f8",
+      "borderStyle": "black",
+      "position": "bottom",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "images/index_tab01.png",
+          "selectedIconPath": "images/index_tab02.png"
+        },
+        {
+          "pagePath": "pages/mall/mall",
+          "text": "商城",
+          "iconPath": "images/shopcar_tab01.png",
+          "selectedIconPath": "images/shopcar_tab02.png"
+        },
+        {
+          "pagePath": "editor/editor",
+          "text": "发布",
+          "iconPath": "images/addInfo1.png",
+          "selectedIconPath": "images/addInfo.png"
+        },
+        {
+          "pagePath": "pages/lookWorkers/lookWorkers",
+          "text": "找工人",
+          "iconPath": "images/tab_msg_nor.png",
+          "selectedIconPath": "images/tab_msg_sel.png"
+        },
+        {
+          "pagePath": "pages/me/me",
+          "text": "我的",
+          "iconPath": "images/me_tab01.png",
+          "selectedIconPath": "images/me_tab02.png"
+        }
+      ]
+    },
+  "networkTimeout": {
+    "request": 30000,
+    "downloadFile": 100000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#41CC8E",
+    "navigationBarTitleText": "装小匠",
+    "navigationBarTextStyle": "white",
+    "backgroundColorTop": "#41CC8E"
+  },
+  "sitemapLocation": "sitemap.json"
+}

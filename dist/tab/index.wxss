@@ -1,0 +1,26 @@
+.i-tabs-tab{flex:1;display:flex;width:100%;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;text-align:center;position:relative}
+.i-tabs-tab-bar{
+    /* display:block; */
+    width:100%;height:2px;background:0 0;position:absolute;bottom:0;left:0;background:#94aac2;
+
+    /* 新增 */
+    display:none;
+}
+.i-tabs-tab-title{
+  font-size:.5rem;
+  text-align:center;box-sizing:border-box;color:#80848f}
+  
+  .i-tabs-tab-title-current{
+    color:#41CC8E;
+
+    /* 新增 */
+    border: 1px #41CC8E solid;
+    border-radius: 10px;
+    padding: .2rem .3rem;
+    margin: 0 -.3rem;
+}
+.i-tabs-tab-scroll{
+    display:inline-block;
+    /* width:60px; */
+    width:auto;
+}

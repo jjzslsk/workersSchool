@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "发表文章",
+  "disableScroll": true,
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-tag": "../../dist/tag/index",
+    "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"
+}
+}

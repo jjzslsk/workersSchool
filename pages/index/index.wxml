@@ -1,0 +1,113 @@
+<!--index.wxml-->
+
+<view class='body ws-info-area'>
+  <scroll-view scroll-y class='scroll-area'>
+    <view class='search-bar'>
+      <input class='search-input' placeholder='请输入搜索关键字'></input>
+    </view>
+    <view class="ws-banner-img">
+      <image src="/images/course/ws_banner.jpg" />
+    </view>
+
+    <view class="aui-grid">
+      <view class="aui-row">
+        <view class="aui-col-5" wx:for="{{dataList}}" wx:key="item.id" wx:for-item="item" bindtap='itemClick'>
+          <image class="class-icon" src='{{item.src}}' bindtap="itemClick"></image>
+          <view class="aui-grid-label">{{item.title}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="ws-activity horizontal">
+      <view class="ws-activity-left">
+        <view class="ws-activity01">
+          <image src='{{activityList[0].imgurl}}'/>
+        </view>
+      </view>
+      <view class="ws-activity-right">
+        <view class="ws-activity-right-head horizontal">
+          <view class="ws-activity02">
+            <image src='{{activityList[1].imgurl}}'/>
+          </view>
+          <view class="phd-w"></view>
+          <view class="ws-activity03">
+            <image src='{{activityList[2].imgurl}}' />
+          </view>
+        </view>
+        <view class="ws-activity-right-bottom">
+          <image src='{{activityList[3].imgurl}}' />
+        </view>
+      </view>
+    </view>
+
+    <view class="designer-area">
+      <view class="aui-list aui-list-in" style="border-top:0;">
+        <view class="aui-list-item" style="border-bottom:0;">
+          <view class="aui-list-item-inner aui-list-item-arrow">
+            <view class="aui-list-item-title">设计师</view>
+            <view class="aui-list-item-right">更多</view>
+          </view>
+        </view>
+      </view>
+      <view class="aui-grid">
+        <view class="aui-row">
+          <view class="aui-col-xs-3 click-item-ser"  wx:for="{{designerList}}" wx:key="item.id" wx:for-item="item">
+            <view class="designer-ave">
+              <image src='{{item.aveUrl}}' />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="effect-picture">
+      <view class="aui-list aui-list-in" style="border-top: 0">
+        <view class="aui-list-item">
+          <view class="aui-list-item-inner">
+            <view class="aui-list-item-title">效果图</view>
+            <view class="aui-list-item-right" bindtap="classifyCilck">更多</view>
+
+          </view>
+        </view>
+      </view>
+
+      <view class='tab-head'>
+        <i-tabs i-class="tabs" current="{{ current }}" color="#259b24" bindchange="handleChange">
+          <i-tab i-class="tab-item" key="0" title="推荐"></i-tab>
+          <i-tab i-class="tab-item" key="1" title="空间"></i-tab>
+          <i-tab i-class="tab-item" key="2" title="户型"></i-tab>
+          <i-tab i-class="tab-item" key="3" title="风格"></i-tab>
+          <i-tab i-class="tab-item" key="4" title="公装"></i-tab>
+        </i-tabs>
+      </view>
+
+
+
+
+      <view class="recommend-list" wx:if="{{current}}">
+        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="item.id" wx:for-item="item" data-articleId="{{item.articleId}}" bindtap="listClick">
+          <view class="recommend-item-img">
+            <image wx:if="{{item.imgUrl!=undefined && item.imgUrl!=null && item.imgUrl!=''}}" src='{{item.imgUrl}}'/>
+            <image wx:else src='/images/placeholder.png' />
+          </view>
+          <view class="recommend-item-info">{{item.articleTitle}}</view>
+          <view class="ws-card-footer horizontal">
+            <view class="company horizontal">
+              <image src='{{item.logo}}'/>
+              <view>{{item.articleTitle}}</view>
+            </view>
+            <view class="ws-ft-btns horizontal">
+              <!-- <view class="item-btn">
+                <i class="aui-iconfont aui-icon-star"></i>收藏</view>
+              <view class="item-btn">
+                <i class="aui-iconfont aui-icon-share"></i>分享</view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+  </scroll-view>
+
+</view>

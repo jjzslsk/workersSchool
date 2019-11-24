@@ -1,0 +1,10 @@
+<!--pages/mall/mall.wxml-->
+<view class='mall-box'>
+<scroll-view class='scroll-area'>
+  <image class="mall-img" mode="widthFix" src='{{mallImg}}'></image>
+  <view class="open-shop" tapmode="hover" bindtap="openMall">立即前往小程序</view>
+</scroll-view>
+  <!-- <view class='btn' bindtap="openMall"> -->
+    <!-- <view>点击进入建材商城</view> -->
+  <!-- </view> -->
+</view>

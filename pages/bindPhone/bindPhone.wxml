@@ -1,0 +1,34 @@
+<!--pages/smsLogin/smsLogin.wxml-->
+<view class='body-bg'>
+  <view class='user-ave'>
+    <image lazy-load="true" mode="widthFix" src='/images/head.png' />
+  </view>
+
+  <view class='input-item'>
+    <view class='title'>手机号:</view>
+    <view class='input-area'>
+      <input bindinput="bindPhoneInput" value="{{phone}}" type='number' maxlength='11' placeholder="请输入手机号"/>
+    </view>
+    <view class="{{disabledSmsCode ? 'get-sms-code':'dget-sms-code-null'}}" bindtap='getSmsCodeTap'>
+      <text class="{{disabledSmsCode ? 'disabled-sms-code':''}}">{{smsCodeHint}}</text>
+    </view>
+  </view>
+  <view class='input-sms-code'>
+    <view class='title'>验证码:</view>
+    <view class='input-sms-code'>
+      <input bindinput="bindSmsCodeInput" value="{{smsCode}}" type='number' maxlength='4' placeholder="请输入验证码" />
+    </view>
+  </view>
+
+
+  <view class='submit-btn-area horizontal'>
+    <view class='phone-bind-item'>
+      <button class='submit-btn' hover-class="item-click-sel-bg" open-type="getUserInfo" bindgetuserinfo="getUserInfo" data-action="reg"> 注册绑定 </button>
+    </view>
+    <view class='login-item'>
+      <button class='submit-btn' hover-class="item-click-sel-bg" open-type="getUserInfo" bindgetuserinfo="getUserInfo" data-action="login"> 已注册点击此登录 </button>
+    </view>
+  </view>
+
+
+</view>

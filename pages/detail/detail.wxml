@@ -1,0 +1,22 @@
+<view class="body">
+    <view class="head" hover-class="none" hover-stop-propagation="false">
+        <!-- <view class="top" hover-class="none" hover-stop-propagation="false">
+            <image class="" src='{{detailData.imgUrl}}' mode="scaleToFill" lazy-load="false" binderror="" bindload=""/>
+        </view> -->
+        <view class="main" hover-class="none" hover-stop-propagation="false">
+            <view class="main-text">
+                {{detailData.articleDescribe}}
+            </view>
+        </view>
+        <view class="bottm" hover-class="none" hover-stop-propagation="false">
+            <image class="" src="/images/course/recommend03.jpg" mode="" lazy-load="false" binderror="" bindload="">
+            </image>
+            <view class="bot-info">
+                {{detailData.createName}}
+            </view>
+        </view>
+    </view>
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+        <rich-text nodes="{{detailData.articleNotes}}"></rich-text>
+    </view>
+</view>

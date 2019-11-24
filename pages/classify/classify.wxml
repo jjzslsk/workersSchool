@@ -1,0 +1,34 @@
+
+<i-tabs current="{{ current_scroll1 }}" scroll bindchange="handleChangeScroll1">
+    <i-tab key="tab1" title="全部"></i-tab>
+    <i-tab key="tab2" title="客厅"></i-tab>
+    <i-tab key="tab3" title="餐厅"></i-tab>
+    <i-tab key="tab4" title="卧室"></i-tab>
+    <i-tab key="tab5" title="书房"></i-tab>
+    <i-tab key="tab6" title="厨房"></i-tab>
+    <i-tab key="tab7" title="卫生间"></i-tab>
+    <i-tab key="tab8" title="玄关"></i-tab>
+    <i-tab key="tab9" title="阳台"></i-tab>
+</i-tabs>
+<i-tabs current="{{ current_scroll2 }}" scroll bindchange="handleChangeScroll2">
+    <i-tab key="tab1" title="风格"></i-tab>
+    <i-tab key="tab2" title="北欧"></i-tab>
+    <i-tab key="tab3" title="选项3"></i-tab>
+    <i-tab key="tab4" title="选项4"></i-tab>
+    <i-tab key="tab5" title="选项5"></i-tab>
+    <i-tab key="tab6" title="选项6"></i-tab>
+    <i-tab key="tab7" title="选项7"></i-tab>
+    <i-tab key="tab8" title="选项8"></i-tab>
+    <i-tab key="tab9" title="选项9"></i-tab>
+</i-tabs>
+<i-tabs current="{{ current_scroll3 }}" scroll bindchange="handleChangeScroll3">
+    <i-tab key="tab1" title="全部"></i-tab>
+    <i-tab key="tab2" title="设计师"></i-tab>
+    <i-tab key="tab3" title="屋主"></i-tab>
+    <i-tab key="tab4" title="选项4"></i-tab>
+    <i-tab key="tab5" title="选项5"></i-tab>
+    <i-tab key="tab6" title="选项6"></i-tab>
+    <i-tab key="tab7" title="选项7"></i-tab>
+    <i-tab key="tab8" title="选项8"></i-tab>
+    <i-tab key="tab9" title="选项9"></i-tab>
+</i-tabs>
