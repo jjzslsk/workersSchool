@@ -365,7 +365,7 @@ App({
     })
   },
 
-/**
+  /**
  * Post请求
  * actionUrl :请求接口入口
  * param 请求参数
@@ -634,7 +634,6 @@ App({
     url: 'https://www.zxjtest.xyz', //开发环境接口域名
     urlFs: 'https://www.zxjtest.xyz:9443', //开发环境接口域名
     websocketUrl: 'wss://zxjtest.xyz:9443/zxj/websocket',//开发环境websocket
-    userInfo: null,
     js_code: '',
     userInfo: null, //微信用户信息
     openId: '', //用户唯一标识

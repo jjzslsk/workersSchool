@@ -1,7 +1,7 @@
 {
   "pages": [
-    "editor/editor",
     "pages/index/index",
+    "editor/editor",
     "pages/detail/detail",
     "pages/classify/classify",
     "pages/logs/logs",

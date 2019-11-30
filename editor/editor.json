@@ -5,6 +5,9 @@
     "i-input": "../../dist/input/index",
     "i-tag": "../../dist/tag/index",
     "i-tabs": "../../dist/tabs/index",
-    "i-tab": "../../dist/tab/index"
+    "i-tab": "../../dist/tab/index",
+    "i-button": "../../dist/button/index",
+    "i-badge": "../../dist/badge/index",
+    "i-toast": "../../dist/toast/index"
 }
 }

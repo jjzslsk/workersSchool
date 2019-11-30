@@ -4,19 +4,21 @@ const app = getApp()
 
 Page({
   data: {
+    goodsCollectList:null,
+    advanced:null,
     listData:[],
     current: '0',
     dataList:[
-      {title:'装修攻略',src:'/images/course/xgt_icon.png',isClick:false},
-      {title:'装修攻略',src:'/images/course/zxgl_icon.png'},
-      {title:'服务保障',src:'/images/course/fwbz_icon.png'},
-      {title:'计算器',src:'/images/course/jsj_icon.png'},
-      {title:'找设计师',src:'/images/course/zsjs_icon.png'},
-      {title:'监理工匠',src:'/images/course/jlgj_icon.png'},
-      {title:'装修分期',src:'/images/course/zxfq_icon.png'},
-      {title:'一站服务',src:'/images/course/yzfw_icon.png'},
-      {title:'全屋定制',src:'/images/course/qwdz_icon.png'},
-      {title:'一站服务',src:'/images/course/yzfw_icon.png'},
+      { id:'1',title:'装修攻略',src:'/images/course/xgt_icon.png',isClick:false},
+      { id:'2',title:'装修攻略',src:'/images/course/zxgl_icon.png'},
+      { id:'3',title:'服务保障',src:'/images/course/fwbz_icon.png'},
+      { id:'4',title:'计算器',src:'/images/course/jsj_icon.png'},
+      { id:'5',title:'找设计师',src:'/images/course/zsjs_icon.png'},
+      { id:'6',title:'监理工匠',src:'/images/course/jlgj_icon.png'},
+      { id:'7',title:'装修分期',src:'/images/course/zxfq_icon.png'},
+      { id:'8',title:'一站服务',src:'/images/course/yzfw_icon.png'},
+      { id:'9',title:'全屋定制',src:'/images/course/qwdz_icon.png'},
+      { id:'10',title:'一站服务',src:'/images/course/yzfw_icon.png'},
       // {title:'新闻热点',src:'/images/course/xwrd_icon.png'},
     ],
 
@@ -65,10 +67,34 @@ Page({
   },
 
   handleChange({ detail }) {
+    var that = this
     this.setData({
       current: detail.key,
-      recommendList: this.data.recommendListData01[detail.key]
+      // recommendList: this.data.recommendListData01[detail.key]
     });
+    if(!detail.key) return
+    var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&classParentId='+ detail.key;
+    wx.showLoading({
+      title: '加载中',
+    })
+    var that = this
+
+    app.httpsDataGet('/shop/getArticleListForSchool', Param,
+      function (res) {
+        if (res.status) {
+          if (res.data.length > 0) {
+            that.setData({
+              recommendList: res.data,
+            });
+          }
+        }
+      },
+      function (res) {
+        //失败
+        wx.hideLoading()
+      }
+    )
+
   },
 
   itemClick: function(){
@@ -98,29 +124,44 @@ Page({
     })
   },
 
-  onShow:function(){
-        var aParam1 = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1';
-    wx.showLoading({
-      title: '加载中',
-    })
-    var that = this
 
-    app.httpsDataGet('/shop/getArticleListForSchool', aParam1,
-      function (res) {
-        if (res.status) {
-          if (res.data.length > 0) {
+
+      //获取商品收藏列表
+      getGoodsCollectList: function() {
+        var that = this;
+        app.httpsGetDatByPlatform('params_class_xg_tree', 'list','',
+          function(res) {
+            //成功
             that.setData({
-              recommendList: res.data,
+              goodsCollectList: res.msg,
             });
-          }
-        }
+            that.classifyInfo()
+          },
+          function(returnFrom, res) {
+            //失败
+            wx.hideLoading();
+          });
       },
-      function (res) {
-        //失败
-        wx.hideLoading()
-      }
-    )
-  },
+      classifyInfo(id){ //分组 拿子级的父ID遍历得到，父对象数组advanced
+        var that = this;
+        var CLASS_PARENT_ID = that.data.goodsCollectList[0].CLASS_PARENT_ID
+        var advanced = []
+        that.data.goodsCollectList.forEach((element,index) => {
+          if(CLASS_PARENT_ID == element.CLASS_PARENT_ID){
+            advanced.push (element)
+          }
+  
+          let temp_str ='goodsCollectList['+index+'].checked'; //加入默认checked
+          this.setData({
+              [temp_str]:false
+          })
+  
+        });
+        that.setData({
+          advanced : advanced
+        })
+        console.log (that.data.advanced)
+      },
 
   onLoad: function () {
 
@@ -155,10 +196,12 @@ Page({
       })
     }
 
-
+    
 
 
   },
+
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -166,5 +209,35 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+   /**
+   * 生命周期函数--监听页面显示
+  */
+ onShow:function(){
+  var that = this
+  that.getGoodsCollectList() //获取大类
+
+  //获取所有List
+  wx.showLoading({
+    title: '加载中',
+  })
+  var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1';
+  app.httpsDataGet('/shop/getArticleListForSchool', Param,
+    function (res) {
+      if (res.status) {
+        if (res.data.length > 0) {
+          that.setData({
+            recommendList: res.data,
+          });
+        }
+      }
+    },
+    function (res) {
+      //失败
+      wx.hideLoading()
+    }
+  )
+},
+
 })

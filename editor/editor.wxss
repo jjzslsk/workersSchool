@@ -1,6 +1,10 @@
 @import "../common/lib/weui.wxss";
 @import "./assets/iconfont.wxss";
 
+page {
+  overflow: scroll !important;
+}
+
 .show {
   position: fixed;
   top: .6rem;
@@ -59,6 +63,7 @@
   border-left: none;
   border-right: none;
   float: left;
+  background: rgb(255, 255, 255);
 }
 
 .commit-btn{
@@ -92,3 +97,10 @@ padding: 3px 14px;
 .activeTagfont {
   font-size: 16px;
 }
+
+.tag-box{margin: 0.5rem 0.5rem;}
+.wrap-item{display: flex;flex-wrap: wrap;padding: .4rem;}
+.item-but {height: 1.4rem;line-height: 1.4rem;text-align: center;min-width: 3rem;font-size: 12px;border-radius: 6px;background-color: rgb(216, 216, 216);color: #fff;padding: 1px 3px;margin: 0 .2rem;}
+.tag-item {position: relative;display: inline-block;height: 18px;line-height: 18px;padding: 0 4px;border-radius: 2px;background: #fff;font-size: 11px;vertical-align: middle;border: 1rpx solid #dddee1;color: #19be6b;background: #fff;border-color: #19be6b;}
+.badge-box {padding: .5rem;position: absolute;top: -15px;right: -15px;z-index: 3;}
+.badge-but {color: #fff;border-radius:10px;display: flex;justify-content: center;align-items: center;width: .8rem;height: .8rem;background-color: red;}

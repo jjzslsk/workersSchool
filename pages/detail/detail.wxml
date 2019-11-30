@@ -7,6 +7,9 @@
             <view class="main-text">
                 {{detailData.articleDescribe}}
             </view>
+            <view class="create-date">
+                {{detailData.createDate}}
+            </view>
         </view>
         <view class="bottm" hover-class="none" hover-stop-propagation="false">
             <image class="" src="/images/course/recommend03.jpg" mode="" lazy-load="false" binderror="" bindload="">

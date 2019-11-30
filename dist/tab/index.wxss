@@ -4,20 +4,20 @@
     width:100%;height:2px;background:0 0;position:absolute;bottom:0;left:0;background:#94aac2;
 
     /* 新增 */
-    display:none;
+    /* display:none; */
 }
 .i-tabs-tab-title{
-  font-size:.5rem;
+  font-size:12px;
   text-align:center;box-sizing:border-box;color:#80848f}
   
   .i-tabs-tab-title-current{
     color:#41CC8E;
 
     /* 新增 */
-    border: 1px #41CC8E solid;
+    /* border: 1px #41CC8E solid;
     border-radius: 10px;
     padding: .2rem .3rem;
-    margin: 0 -.3rem;
+    margin: 0 -.3rem; */
 }
 .i-tabs-tab-scroll{
     display:inline-block;

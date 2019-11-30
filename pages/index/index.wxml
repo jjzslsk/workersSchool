@@ -11,7 +11,7 @@
 
     <view class="aui-grid">
       <view class="aui-row">
-        <view class="aui-col-5" wx:for="{{dataList}}" wx:key="item.id" wx:for-item="item" bindtap='itemClick'>
+        <view class="aui-col-5" wx:for="{{dataList}}" wx:key="id" wx:for-item="item" bindtap='itemClick'>
           <image class="class-icon" src='{{item.src}}' bindtap="itemClick"></image>
           <view class="aui-grid-label">{{item.title}}</view>
         </view>
@@ -51,7 +51,7 @@
       </view>
       <view class="aui-grid">
         <view class="aui-row">
-          <view class="aui-col-xs-3 click-item-ser"  wx:for="{{designerList}}" wx:key="item.id" wx:for-item="item">
+          <view class="aui-col-xs-3 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
             <view class="designer-ave">
               <image src='{{item.aveUrl}}' />
             </view>
@@ -73,34 +73,28 @@
 
       <view class='tab-head'>
         <i-tabs i-class="tabs" current="{{ current }}" color="#259b24" bindchange="handleChange">
-          <i-tab i-class="tab-item" key="0" title="推荐"></i-tab>
-          <i-tab i-class="tab-item" key="1" title="空间"></i-tab>
-          <i-tab i-class="tab-item" key="2" title="户型"></i-tab>
-          <i-tab i-class="tab-item" key="3" title="风格"></i-tab>
-          <i-tab i-class="tab-item" key="4" title="公装"></i-tab>
+          <i-tab  wx:for="{{advanced}}" wx:for-item="item" wx:key="SYS_PARAMS_CLASS_ID" key="{{item.SYS_PARAMS_CLASS_ID}}" title="{{item.CLASS_NAME}}"></i-tab>
+          <!-- <i-tab i-class="tab-item" key="0" title="推荐"></i-tab> -->
         </i-tabs>
       </view>
 
-
-
-
-      <view class="recommend-list" wx:if="{{current}}">
-        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="item.id" wx:for-item="item" data-articleId="{{item.articleId}}" bindtap="listClick">
+      <view class="recommend-list">
+        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="articleId" wx:for-item="item" data-articleId="{{item.articleId}}" bindtap="listClick">
           <view class="recommend-item-img">
-            <image wx:if="{{item.imgUrl!=undefined && item.imgUrl!=null && item.imgUrl!=''}}" src='{{item.imgUrl}}'/>
-            <image wx:else src='/images/placeholder.png' />
+            <image wx:if="{{item.imgUrl[0]!=undefined && item.imgUrl[0]!=null && item.imgUrl[0]!=''}}" src='{{item.imgUrl[0]}}'/>
+            <!-- <image wx:else src='/images/placeholder.png' /> -->
           </view>
           <view class="recommend-item-info">{{item.articleTitle}}</view>
           <view class="ws-card-footer horizontal">
             <view class="company horizontal">
-              <image src='{{item.logo}}'/>
-              <view>{{item.articleTitle}}</view>
+              <image src='{{item.picListUrl}}'/>
+              <view>{{item.createName}}</view>
             </view>
             <view class="ws-ft-btns horizontal">
-              <!-- <view class="item-btn">
+              <view class="item-btn">
                 <i class="aui-iconfont aui-icon-star"></i>收藏</view>
               <view class="item-btn">
-                <i class="aui-iconfont aui-icon-share"></i>分享</view> -->
+                <i class="aui-iconfont aui-icon-share"></i>分享</view>
             </view>
           </view>
         </view>
