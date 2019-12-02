@@ -461,6 +461,22 @@ Page({
     else {
       that.editorCtx.getContents({ //读取编辑器内容
         success(res) {
+          console.log (res)
+            // res.replace(/\<img/gi, '<img style="width:100%;height:100%" '),
+          // var resData = res
+          // var arrimg = []
+          // resData.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (capture) {
+          //   arrimg.push(capture);
+
+          // });
+
+          // if (arrimg != null && arrimg.length > 0) {
+          //   for (var i = 0; i < arrimg.length; i++) {
+          //     console.log("第" + i + "个：" + arrimg[i]);
+          //   }
+          // }
+
+
             that.setData({
               articleNotes: res
               })

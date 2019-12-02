@@ -209,8 +209,8 @@ App({
   },
 
   /**
-* 获取token
-*/
+   * 获取token
+   */
   getZxjToken: function () {
     try {
       return wx.getStorageSync('zxj_token')
@@ -218,7 +218,6 @@ App({
       return null;
     }
   },
-
 
   /**
    * 请求获取用户唯一标识openid
@@ -505,6 +504,81 @@ App({
         wx.showModal({
           title: '提示',
           content: '网络异常(' + res.errMsg + ')',
+          showCancel: false,
+        })
+        typeof call_fail == "function" && call_fail(1, res)
+      },
+    })
+  },
+
+  /**
+   * 通过平台请求接口(class)
+   * dataSet 查询调用的名称
+   * queryMode map或list
+   * param 请求参数
+   * call_success 请求成功回调
+   * call_fail 请求失败回调
+   */
+  httpsPlatformClass: function (dataSet, param, call_success, call_fail) {
+    //key = 'zxj_repertory';//数据源名称
+    //AJAX_MODE = 'AJAX_MODE_QUERY';//固定
+    //DATASET = 'client_rec_addres_default';//查询调用的名称
+    //QUERY_MODE = 'map';//’map或list’
+    // var paramStr = "AJAX_MODE_OPERATE=" + dataSet + "&" + param
+    var paramStr = "AJAX_MODE=AJAX_MODE_OPERATE&operate=" + dataSet + "&" + param;
+    var url = this.globalData.url + '/ajax?' + paramStr;
+    url = encodeURI(url);
+    var zxjToken = this.getZxjToken();
+    wx.request({
+      url: url,
+      method: 'post',
+      dataType: 'json',
+      header: {
+        'content-type': 'application/json;charset=UTF-8',
+        'token': zxjToken
+      },
+      success: res => {
+        wx.hideLoading();
+        if (res.statusCode == 200) {
+          var resultData = res.data;
+          if (resultData.code == 0 || resultData.code == '0') {
+            //获取到数据成功
+            var resultMsg = resultData.msg;
+            //判断返回来的数据resultData是json对象还是json字符串
+            if (typeof resultMsg == 'object' && resultMsg) {
+              //如果是json对象,不用做处理
+            } else {
+              //如果是json字符串，则需要处理成json对象
+              if (resultMsg == '' || resultMsg == null) {
+              } else {
+                // resultMsg = JSON.parse(resultMsg);
+                // resultData.msg = resultMsg;
+              }
+            }
+            typeof call_success == "function" && call_success(resultData)
+          } else {
+            //获取数据失败
+            wx.showModal({
+              title: '提示',
+              content: resultData.msg + '(' + resultData.code + ')',
+              showCancel: false,
+            })
+            typeof call_fail == "function" && call_fail(0, resultData)
+          }
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '请求失败(' + res.statusCode + ')',
+            showCancel: false,
+          })
+        }
+      },
+      fail: res => {
+        wx.hideLoading();
+        //请求接口失败
+        wx.showModal({
+          title: '提示',
+          content: '请求失败(' + res.errMsg + ')',
           showCancel: false,
         })
         typeof call_fail == "function" && call_fail(1, res)

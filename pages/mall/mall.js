@@ -17,11 +17,9 @@ Page({
       envVersion: 'release',//要打开的小程序版本。仅在当前小程序为开发版或体验版时此参数有效。如果当前小程序是正式版，则打开的小程序必定是正式版。(开发版:develop,体验版:trial,正式版:release)
       success(res) {
         // 打开成功
-        console.log('打开成功:' + JSON.stringify(res))
       },
       fail(res) {
         // 打开失败
-        console.log('打开失败:' + JSON.stringify(res))
       }
     })
   },

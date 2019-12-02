@@ -60,5 +60,10 @@
     "navigationBarTextStyle": "white",
     "backgroundColorTop": "#41CC8E"
   },
+    "navigateToMiniProgramAppIdList": [
+      "wx4ae069d1473a78ce",
+      "wxc6c07271d6c38f13"
+    ],
   "sitemapLocation": "sitemap.json"
+  
 }

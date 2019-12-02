@@ -104,10 +104,14 @@ Page({
   },
 
   listClick: function (e){
-    var articleTitle = e.currentTarget.dataset.articleid;
-    var articleTitleData = articleTitle.toString()
+    console.log (JSON.stringify(e))
+
+    // var articleTitleData = articleTitle.toString()
     wx.navigateTo({
-      url: '../detail/detail?id=' + articleTitleData
+      url: '../detail/detail?articleId=' 
+        + e.currentTarget.dataset.item.articleId
+        + '&createName=' + e.currentTarget.dataset.item.createName 
+        + '&picListUrl=' + e.currentTarget.dataset.item.picListUrl
     })
   },
 

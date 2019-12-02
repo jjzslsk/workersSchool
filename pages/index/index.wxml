@@ -79,7 +79,12 @@
       </view>
 
       <view class="recommend-list">
-        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="articleId" wx:for-item="item" data-articleId="{{item.articleId}}" bindtap="listClick">
+        <view class="recommend-item" 
+        wx:for="{{recommendList}}"
+        wx:key="articleId"
+        wx:for-item="item"
+         data-item="{{item}}"
+         bindtap="listClick">
           <view class="recommend-item-img">
             <image wx:if="{{item.imgUrl[0]!=undefined && item.imgUrl[0]!=null && item.imgUrl[0]!=''}}" src='{{item.imgUrl[0]}}'/>
             <!-- <image wx:else src='/images/placeholder.png' /> -->
