@@ -2,7 +2,10 @@
 
 <!-- <view class="show" style="color:{{isShowcolor1}};" wx:if="{{isShow}}" bindtap='isShowBut'>隐藏主题</view>
 <view class="show" style="color:{{isShowcolor2}};" wx:else bindtap='isShowBut'>显示主题</view> -->
-<i-toast id="toast" />
+<!-- <view class="switch">
+    <i-switch value="{{ switch }}" bindchange="onSwitchChange"></i-switch>
+</view> -->
+
 <i-panel wx:if="{{isShow}}" title="基础用法">
     <i-input value="{{ articleTitle }}" bind:change="articleTitle" type="textarea" title="标题" placeholder="请输入标题(必填)" />
     <i-input value="{{ articleDescribe }}" bind:change="articleDescribe" type="textarea" title="描述" placeholder="请输入内容(最多50字)" maxlength="50" />
@@ -60,7 +63,7 @@
   <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
   <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
   <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
-        <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
+  <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
 
   <i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
   <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
@@ -68,5 +71,8 @@
 </view>
 <view class='commit-btn' data-step="2" bindtap='setStep'>发布</view>
   {{testdata}}
+
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+<i-toast id="toast" />
 
 

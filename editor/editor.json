@@ -8,6 +8,7 @@
     "i-tab": "../../dist/tab/index",
     "i-button": "../../dist/button/index",
     "i-badge": "../../dist/badge/index",
-    "i-toast": "../../dist/toast/index"
+    "i-toast": "../../dist/toast/index",
+    "i-spin": "../../dist/spin/index"
 }
 }

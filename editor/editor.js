@@ -11,6 +11,7 @@ Page({
     advanced:[],//一级数据
     searchKey:[],
     searchObj:[],
+    spinShow: false,
 
     tags:[],
 
@@ -444,6 +445,13 @@ Page({
     )
   },
 
+    onSwitchChange (detail) {
+        this.setData({
+            spinShow: detail,
+            isShow:!detail
+        });
+    },
+
   setStep: function (e) {
     var that = this
     if (!that.data.orderId){
@@ -495,14 +503,15 @@ Page({
                           wx.showLoading({
                             title: '提交中',
                           })
+                          that.commit()
                           
-                          if (that.data.pickedImgs != null && that.data.pickedImgs != undefined && that.data.pickedImgs != '' && that.data.pickedImgs.length != 0){
-                            that.updateImg() //传图
-                            return
-                          }else {
-                            // $Toast({content:'请为文章插入图片'});
-                            that.commit()
-                          }
+                          // if (that.data.pickedImgs != null && that.data.pickedImgs != undefined && that.data.pickedImgs != '' && that.data.pickedImgs.length != 0){
+                          //   that.updateImg() //传图
+                          //   return
+                          // }else {
+                          //   // $Toast({content:'请为文章插入图片'});
+                          //   that.commit()
+                          // }
                           } else if (res.cancel) {
                           //点击取消
                           }
@@ -574,11 +583,13 @@ Page({
   
   //压缩图片
   compressImage: function () {
+    var that = this
+    that.onSwitchChange(true)
+
     var compressImgsIndex = this.data.compressImgsIndex
     var compressImgs = this.data.compressImgs
     var pickedImgs = this.data.pickedImgs
 
-    var that = this
     if (compressImgsIndex < compressImgs.length) {
       console.log(compressImgs[compressImgsIndex])
       wx.compressImage({
@@ -604,18 +615,22 @@ Page({
     } else { //循环结束执行
 
       // if(numClick==0){ //只执行一次
-      that.data.compressImgs.forEach(element => {
-        that.editorCtx.insertImage({
-          src: element,
-          data: {
-            id: 'abcd',
-            role: 'god'
-          },
-          success: function () {
-            console.log('insert image success')
-          }
-        })
-      });
+      
+      // that.data.compressImgs.forEach(element => {
+      //   that.editorCtx.insertImage({
+      //     src: element,
+      //     data: {
+      //       id: 'abcd',
+      //       role: 'god'
+      //     },
+      //     success: function () {
+      //       console.log('insert image success')
+      //     }
+      //   })
+      // });
+
+      that. updateImg()
+
     // }
     // else{numClick = 0}
     // numClick = 1
@@ -683,7 +698,22 @@ Page({
         if (uploadedImgIndex < pickedImgs.length) { //循环上传图片
           that.updateImg()
         } else {
-          that.commit()
+
+                that.data.uploadedImgs.forEach(element => {
+                  that.editorCtx.insertImage({
+                    src: element,
+                    data: {
+                      id: 'abcd',
+                      role: 'god'
+                    },
+                    success: function () {
+                      console.log('insert image success')
+                      that.onSwitchChange(false)
+                    }
+                  })
+                });
+
+          // that.commit()
         }
         }
       })

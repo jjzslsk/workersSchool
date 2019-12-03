@@ -24,7 +24,7 @@
       <!-- <view class='message' bindtap='onMessageTap'>消息<view class='msg-dot' wx:if='{{unreadCountTotal>0}}'>{{unreadCountTotal}}</view></view> -->
     </view>
   </view>
-  <view class='items'>
+  <view class='items' style="display:none;">
     <view class='item-title' data-status="a" bindtap="">我的学堂
     <!-- <text class='title-tips'> ></text> -->
     </view>
@@ -38,131 +38,131 @@
   </view>
   <view class='items' style='margin-top:1rem;'>
     <view class='item-title'>基本信息</view>
-    <!-- <i-grid>       
+    <i-grid>       
         <i-grid-item data-type="memberCenter" bindtap="openWXSubscription">
             <i-grid-icon>
-                <image src="/images/me/individual_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/individual_icon.png" />
             </i-grid-icon>
             <i-grid-label>用户中心</i-grid-label>
         </i-grid-item>
         <i-grid-item data-type="distribution" bindtap="openWXSubscription">
             <i-grid-icon>
-                <image src="/images/me/Distribution_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/Distribution_icon.png" />
             </i-grid-icon>
             <i-grid-label>我的团队</i-grid-label>
         </i-grid-item>
         <i-grid-item data-type="commission" bindtap="openWXSubscription">
             <i-grid-icon>
-                <image src="/images/me/post_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/post_icon.png" />
             </i-grid-icon>
             <i-grid-label>我的佣金</i-grid-label>
         </i-grid-item>
         <i-grid-item data-type="myWallet" bindtap="openWXSubscription">
             <i-grid-icon>
-                <image src="/images/me/wallet_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/wallet_icon.png" />
             </i-grid-icon>
             <i-grid-label>我的明细</i-grid-label>
         </i-grid-item>
-    </i-grid> -->
+    </i-grid>
   </view>
   <view class='items' style='margin-top:1rem;'>
     <view class='item-title'>增值服务</view>
-    <!-- <i-grid>
+    <i-grid>
         <i-grid-item data-type="wzworker" bindtap="openPage">
             <i-grid-icon>
-                <image src="/images/me/wzgj_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/wzgj_icon.png" />
             </i-grid-icon>
             <i-grid-label>我做工匠</i-grid-label>
         </i-grid-item>
         <i-grid-item data-type="shoplc" bindtap="openPage">
             <i-grid-icon>
-                <image src="/images/me/wykd.png" />
+                <image style="width:100%;height:100%;" src="/images/me/wykd.png" />
             </i-grid-icon>
             <i-grid-label>我要开店</i-grid-label>
         </i-grid-item>
         <i-grid-item>
             <button class="kfBtn" plain='true' open-type="contact"></button>
             <i-grid-icon>              
-                <image src="/images/me/bbs_icon1.png" />                
+                <image style="width:100%;height:100%;" src="/images/me/bbs_icon1.png" />                
             </i-grid-icon>
             <i-grid-label>客服中心</i-grid-label>           
         </i-grid-item>
         <i-grid-item bindtap="openQuestions">
             <i-grid-icon>
-                <image src="/images/me/help_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/help_icon.png" />
             </i-grid-icon>
             <i-grid-label>常见问题</i-grid-label>
         </i-grid-item>
-    </i-grid> -->
-    <!-- <i-grid> -->
-    <!-- <i-grid-item bindtap="openSuggest">
+    </i-grid>
+    <i-grid>
+    <i-grid-item bindtap="openSuggest">
             <i-grid-icon>
-                <image src="/images/me/toushu_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/toushu_icon.png" />
             </i-grid-icon>
             <i-grid-label>投诉建议</i-grid-label>
         </i-grid-item>  
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/project_icon2.png" />
+                <image style="width:100%;height:100%;" src="/images/me/project_icon2.png" />
             </i-grid-icon>
             <i-grid-label>我的工地</i-grid-label>
         </i-grid-item>
         <i-grid-item  data-type="bbs" bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/bbs_icon2.png" />
+                <image style="width:100%;height:100%;" src="/images/me/bbs_icon2.png" />
             </i-grid-icon>
             <i-grid-label>业主论坛</i-grid-label>
         </i-grid-item> 
               
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/collect_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/collect_icon.png" />
             </i-grid-icon>
             <i-grid-label>我的收藏</i-grid-label>
         </i-grid-item>       
-    </i-grid> -->
-    <!-- <i-grid>      
+    </i-grid>
+    <i-grid>      
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/credit_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/credit_icon.png" />
             </i-grid-icon>
             <i-grid-label>装修信贷</i-grid-label>
         </i-grid-item>
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/calendar_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/calendar_icon.png" />
             </i-grid-icon>
             <i-grid-label>黄历</i-grid-label>
         </i-grid-item>
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/jsq.png" />
+                <image style="width:100%;height:100%;" src="/images/me/jsq.png" />
             </i-grid-icon>
             <i-grid-label>计算器</i-grid-label>
         </i-grid-item>
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/coupon_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/coupon_icon.png" />
             </i-grid-icon>
             <i-grid-label>优惠券</i-grid-label>
         </i-grid-item>       
-    </i-grid> -->
-    <!-- <i-grid>      
+    </i-grid>
+    <i-grid>      
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/present_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/present_icon.png" />
             </i-grid-icon>
             <i-grid-label>礼品</i-grid-label>
         </i-grid-item>
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/zxnote2_icon.png" />
+                <image style="width:100%;height:100%;" src="/images/me/zxnote2_icon.png" />
             </i-grid-icon>
             <i-grid-label>装修日记</i-grid-label>
         </i-grid-item>
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
-                <image src="/images/me/jz.png" />
+                <image style="width:100%;height:100%;" src="/images/me/jz.png" />
             </i-grid-icon>
             <i-grid-label>装修记账</i-grid-label>
         </i-grid-item>      
@@ -171,7 +171,7 @@
             </i-grid-icon>
             <i-grid-label></i-grid-label>
         </i-grid-item>
-    </i-grid> -->
+    </i-grid>
   </view>
   </scroll-view>
 </view>
