@@ -552,7 +552,8 @@ Page({
 
     //呼起相册、相机
     wx.chooseImage({ 
-      count: count,  //最多可以选择的图片张数
+      // count: count,  //最多可以选择的图片张数
+      count: 1,  //最多可以选择的图片张数
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {// tempFilePath可以作为img标签的src属性显示图片
@@ -564,19 +565,6 @@ Page({
         //   that.data.compressImgs.push(element)
         // });
         that.compressImage() //压缩图片
-
-        // that.data.compressImgs.forEach(element => {
-        //   that.editorCtx.insertImage({
-        //     src: element,
-        //     data: {
-        //       id: 'abcd',
-        //       role: 'god'
-        //     },
-        //     success: function () {
-        //       console.log('insert image success')
-        //     }
-        //   })
-        // });
       }
     })
   },
@@ -686,6 +674,19 @@ Page({
           if (resData.pic && resData.pic.length > 0)
             uploadedImgs.push(resData.pic[0].pic)
 
+
+              that.editorCtx.insertImage({
+                src: resData.pic[0].pic,
+                data: {
+                  id: 'abcd',
+                  role: 'god'
+                },
+                success: function () {
+                  console.log('insert image success')
+                }
+              })
+  
+
           that.setData({
             uploadedImgs: uploadedImgs
           })
@@ -698,20 +699,25 @@ Page({
         if (uploadedImgIndex < pickedImgs.length) { //循环上传图片
           that.updateImg()
         } else {
+          that.setData({
+            uploadedImgIndex:0,
+            uploadedImgs:[],
+            pickedImgs:[]
+          })
 
-                that.data.uploadedImgs.forEach(element => {
-                  that.editorCtx.insertImage({
-                    src: element,
-                    data: {
-                      id: 'abcd',
-                      role: 'god'
-                    },
-                    success: function () {
-                      console.log('insert image success')
+                // that.data.uploadedImgs.forEach(element => {
+                //   that.editorCtx.insertImage({
+                //     src: element,
+                //     data: {
+                //       id: 'abcd',
+                //       role: 'god'
+                //     },
+                //     success: function () {
+                //       console.log('insert image success')
                       that.onSwitchChange(false)
-                    }
-                  })
-                });
+                //     }
+                //   })
+                // });
 
           // that.commit()
         }
@@ -743,14 +749,36 @@ Page({
           wx.showModal({
             title: '提示',
             content: '已提交',
-            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/index/index',
+                  })
+                } else if (res.cancel) {
+                //点击取消
+                wx.switchTab({
+                  url: '/pages/index/index',
+                  })
+                }
+            }
           });
           console.log (JSON.stringify(ret))
         } else {
           wx.showModal({
             title: '提示',
             content: '提交失败',
-            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/index/index',
+                  })
+                } else if (res.cancel) {
+                //点击取消
+                wx.switchTab({
+                  url: '/pages/index/index',
+                  })
+                }
+            }
           });
         }
         wx.hideLoading();

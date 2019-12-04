@@ -51,7 +51,7 @@
       </view>
       <view class="aui-grid">
         <view class="aui-row">
-          <view class="aui-col-xs-3 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
+          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
             <view class="designer-ave">
               <image src='{{item.aveUrl}}' />
             </view>
@@ -86,7 +86,7 @@
          data-item="{{item}}"
          bindtap="listClick">
           <view class="recommend-item-img">
-            <image wx:if="{{item.imgUrl[0]!=undefined && item.imgUrl[0]!=null && item.imgUrl[0]!=''}}" src='{{item.imgUrl[0]}}'/>
+            <image wx:if="{{item.itemImg!=undefined && item.itemImg!=null && item.itemImg!=''}}" src='{{item.itemImg}}'/>
             <!-- <image wx:else src='/images/placeholder.png' /> -->
           </view>
           <view class="recommend-item-info">{{item.articleTitle}}</view>

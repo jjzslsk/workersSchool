@@ -174,10 +174,9 @@ Page({
             
             that.setData({
               detailData: res.data[0],
-              // article:res.data.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
             });
             that.setData({
-              // ['detailData.articleNotes']: res.data[0].articleNotes.replace(/\<img/gi, '<img style="width:100%;height:100%" '),
+              ['detailData.articleNotes']: res.data[0].articleNotes.replace(/\<img/gi, '<img style="width:100%;height:100%" '),
               // article:res.data.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
             });
             console.log ('11'+that.data.detailData.articleNotes)

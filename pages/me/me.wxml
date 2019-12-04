@@ -24,17 +24,56 @@
       <!-- <view class='message' bindtap='onMessageTap'>消息<view class='msg-dot' wx:if='{{unreadCountTotal>0}}'>{{unreadCountTotal}}</view></view> -->
     </view>
   </view>
-  <view class='items' style="display:none;">
-    <view class='item-title' data-status="a" bindtap="">我的学堂
+  <view class='items'>
+    <view class='item-title aui-row' data-status="a" bindtap="">
     <!-- <text class='title-tips'> ></text> -->
+    <view class="aui-col-xs-4">
+        <view class=" item-title-box item-title-text">关注</view>
+        <view class=" item-title-box item-title-num">34</view>
+    </view>
+    <view class="aui-col-xs-4">
+        <view class=" item-title-box item-title-text">被关注</view>
+        <view class=" item-title-box item-title-num">56</view>
+    </view>
+    <view class="aui-col-xs-4">
+        <view class=" item-title-box item-title-text">获赞</view>
+        <view class=" item-title-box item-title-num">777</view>
+    </view>
     </view>
     <view class='aui-flex-col aui-flex-middle'>
-
+                    <i-grid>       
+        <i-grid-item data-type="memberCenter" bindtap="">
+            <i-grid-icon>
+                <image style="width:100%;height:100%;" src="/images/me/grxx.png" />
+            </i-grid-icon>
+            <i-grid-label>个人信息</i-grid-label>
+        </i-grid-item>
+        <i-grid-item data-type="distribution" bindtap="">
+            <i-grid-icon>
+                <image style="width:100%;height:100%;" src="/images/me/wdfb.png" />
+            </i-grid-icon>
+            <i-grid-label>我的发布</i-grid-label>
+        </i-grid-item>
+        <i-grid-item data-type="commission" bindtap="">
+            <i-grid-icon>
+                <image style="width:100%;height:100%;" src="" />
+            </i-grid-icon>
+            <i-grid-label></i-grid-label>
+        </i-grid-item>
+        <i-grid-item data-type="myWallet" bindtap="">
+            <i-grid-icon>
+                <image style="width:100%;height:100%;" src="" />
+            </i-grid-icon>
+            <i-grid-label></i-grid-label>
+        </i-grid-item>
+    </i-grid>
     </view>
-      <view class='procedure'>
-            <!-- <image class="procedure-img" src="{{procedureImg}}" mode="widthFix" lazy-load="false" binderror="" bindload="" /><view class='procedure-content'><text>发布需求</text><text>工匠报价</text><text>选择工匠</text><text>现场施工</text><text>服务评价</text>
-            </view> -->
-        </view>
+      <!-- <view class='procedure'>
+            <image class="procedure-img" src="{{procedureImg}}" mode="widthFix" lazy-load="false" binderror="" bindload="" /><view class='procedure-content'><text>发布需求</text><text>工匠报价</text><text>选择工匠</text><text>现场施工</text><text>服务评价</text>
+            </view>
+
+
+        </view> -->
   </view>
   <view class='items' style='margin-top:1rem;'>
     <view class='item-title'>基本信息</view>
@@ -121,7 +160,7 @@
             <i-grid-label>我的收藏</i-grid-label>
         </i-grid-item>       
     </i-grid>
-    <i-grid>      
+    <!-- <i-grid>      
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
                 <image style="width:100%;height:100%;" src="/images/me/credit_icon.png" />
@@ -146,8 +185,8 @@
             </i-grid-icon>
             <i-grid-label>优惠券</i-grid-label>
         </i-grid-item>       
-    </i-grid>
-    <i-grid>      
+    </i-grid> -->
+    <!-- <i-grid>      
         <i-grid-item bindtap="openTobedone">
             <i-grid-icon>
                 <image style="width:100%;height:100%;" src="/images/me/present_icon.png" />
@@ -171,7 +210,7 @@
             </i-grid-icon>
             <i-grid-label></i-grid-label>
         </i-grid-item>
-    </i-grid>
+    </i-grid> -->
   </view>
   </scroll-view>
 </view>

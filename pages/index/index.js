@@ -9,17 +9,16 @@ Page({
     listData:[],
     current: '0',
     dataList:[
-      { id:'1',title:'装修攻略',src:'/images/course/xgt_icon.png',isClick:false},
-      { id:'2',title:'装修攻略',src:'/images/course/zxgl_icon.png'},
-      { id:'3',title:'服务保障',src:'/images/course/fwbz_icon.png'},
-      { id:'4',title:'计算器',src:'/images/course/jsj_icon.png'},
-      { id:'5',title:'找设计师',src:'/images/course/zsjs_icon.png'},
-      { id:'6',title:'监理工匠',src:'/images/course/jlgj_icon.png'},
-      { id:'7',title:'装修分期',src:'/images/course/zxfq_icon.png'},
-      { id:'8',title:'一站服务',src:'/images/course/yzfw_icon.png'},
-      { id:'9',title:'全屋定制',src:'/images/course/qwdz_icon.png'},
-      { id:'10',title:'一站服务',src:'/images/course/yzfw_icon.png'},
-      // {title:'新闻热点',src:'/images/course/xwrd_icon.png'},
+      { id:'1',title:'装修公司',src:'/images/course/zxgs.png',isClick:false},
+      { id: '2', title:'找设计师',src:'/images/course/zsjs.png'},
+      { id: '3', title: '监理工匠', src:'/images/course/jlgj.png'},
+      { id:'4',title:'全屋定制',src:'/images/course/qwdz.png'},
+      { id:'5',title:'装修行用',src:'/images/course/zxxy.png'},
+      { id:'6',title:'装修攻略',src:'/images/course/zxgl.png'},
+      { id:'7',title:'业主社区',src:'/images/course/yzsq.png'},
+      { id:'8',title:'小区活动',src:'/images/course/xqhd.png'},
+      { id:'9',title:'新闻热点',src:'/images/course/xwrd.png'},
+      { id:'10',title:'更多',src:'/images/course/gd.png'},
     ],
 
     activityList:[//活动
@@ -33,7 +32,8 @@ Page({
       {id:'designerave01',aveUrl:'/images/course/designerave01.jpg'},
       {id:'designerave02',aveUrl:'/images/course/designerave02.jpg'},
       {id:'designerave03',aveUrl:'/images/course/designerave03.jpg'},
-      {id:'designerave04',aveUrl:'/images/course/designerave04.jpg'}
+      { id: 'designerave04', aveUrl: '/images/course/designerave04.jpg' },
+      {id:'designerave05',aveUrl:'/images/course/designerave04.jpg'},
     ],
 
     recommendList:[],
@@ -222,6 +222,14 @@ Page({
   var that = this
   that.getGoodsCollectList() //获取大类
 
+  function getFirstPic(str) {
+    let data = ''
+    str.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/, function(match, capture) {
+      data = capture
+    })
+    return data
+  }
+
   //获取所有List
   wx.showLoading({
     title: '加载中',
@@ -231,8 +239,12 @@ Page({
     function (res) {
       if (res.status) {
         if (res.data.length > 0) {
+          var recommendList = res.data.map((item)=>{
+            var funGetFirstPic = getFirstPic(item.articleNotes)
+            return {...item,itemImg:funGetFirstPic}
+          })
           that.setData({
-            recommendList: res.data,
+            recommendList: recommendList,
           });
         }
       }

@@ -1,4 +1,6 @@
 /* pages/me/me.wxss */
+@import "../../lib/aui.wxss";
+
 .body{width: 100%;height: 100vh;background: #F5F5F5;}
 .mall-img{width:60%;margin-left: 20%;margin-top: 20px;border:1px #DDDDDD solid}
 .btn{width:50%;margin-left: 25%;height:40px;line-height: 40px;color: #999999;font-size: 0.8em;text-align: center;margin-top: 30px;border-radius: 5px;}
@@ -6,7 +8,7 @@
 .avatar{height: 60px;width: 60px;border-radius: 50%;margin: 0 auto;}
 .user-name{text-align: left;font-size: 16px;}
 .user-balance{text-align: left;font-size:15px;margin-top: 5px;}
-.items{width:calc(100% - 40px);background: #FFFFFF;border-radius: 10px;overflow: hidden;padding: 0;margin: -20px 20px 10px 20px;}
+.items{width:calc(100% - 40px);background: #FFFFFF;border-radius: 10px;overflow: hidden;padding: 0;margin: -20px 5px 10px 20px;}
 .item-title{padding: 15px;font-size: 0.9em;border-bottom: 1px #DDDDDD solid;}
 .bg-body{background: #DDDDDD !important;border-right: 1px #FFFFFF solid;border-top: 1px #FFFFFF solid;}
 .message{background: #FFFFFF;color: #259B24;border-radius: 5px;height: 25px;line-height: 25px;width: 60px;text-align: center;font-size: 0.7em;margin:0 auto;}
@@ -47,7 +49,7 @@
     -webkit-flex-direction: row;
             flex-direction: row;
     font-size: 0.8em;
-    padding:10px 0;
+    /* padding:10px 0; */
     text-align: center;
 }
 .aui-flex-row {
@@ -285,3 +287,20 @@
 width: 100% !important;
 height: 100% !important;
 }
+
+.item-title-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-title-text {}
+
+.item-title-num {
+    color: #41CC8E;
+}
+
+.i-grid-item {
+padding: 5px 10px !important;
+}
+
