@@ -139,6 +139,9 @@ App({
  */
   loginByOpenId: function (openId, unionid, calFun) {
     var that = this;
+    if(unionid == undefined){
+      unionid = null
+    }
     var param = 'openId=' + openId + '&from=4&unionId=' + unionid;
     this.httpsDataGet('/user/loginByOpenId', param,
       function (loginRet) {

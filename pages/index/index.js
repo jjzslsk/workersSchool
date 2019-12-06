@@ -4,16 +4,46 @@ const app = getApp()
 
 Page({
   data: {
+    bannerList: [
+      {W_ACT_ID:1912020846005770,
+        TITLE:"空调深度保养",
+        CONTENT:"<p><br></p>",
+        CREATE_DATE:null,
+        END_ACT_DATE:null,
+        FLAG:1,
+        ACT_PRICE:100.00,
+        CLIENT_CLASS_ID:1908221100043420,
+        POSITION_NO:"轮播1",
+        CLIENT_ID:1907101446022561,
+        AMOUNT_UNIT:"元/台",
+        COMPANY_NAME:"绿城空调清洗联盟",
+        ADDRESS:"广西壮族自治区南宁市兴宁区",
+        LNG:"108.341855",
+        LAT:"22.860353",
+        BAIDU_MAP_NO:"261",
+        CLIENT_CLASS_NAME:"活动推广",
+        IMG_URL:"/images/course/recommend01.jpg",
+        IMG_URL2:"http://zxjphoto.oss-cn-shenzhen.aliyuncs.com/photo/2019/12/02/activity/1575247594352activity_pic_optimal.jpg",
+        START_ACT_DATE:"2019-12-02",ROWID:"1912060922019971"},
+      {W_ACT_ID:1911261825003294,TITLE:"灯具安装10元起",CONTENT:"<p><br></p>",CREATE_DATE:null,END_ACT_DATE:null,FLAG:1,ACT_PRICE:12.80,CLIENT_CLASS_ID:1908221100043420,POSITION_NO:"轮播2",CLIENT_ID:1907101446022562,AMOUNT_UNIT:"元/个",COMPANY_NAME:"绿城安装公司",ADDRESS:"广西壮族自治区南宁市西乡塘区",LNG:"108.330503",LAT:"22.86357",BAIDU_MAP_NO:"261",CLIENT_CLASS_NAME:"活动推广",IMG_URL:"/images/course/recommend02.jpg",IMG_URL2:"http://zxjphoto.oss-cn-shenzhen.aliyuncs.com/photo/2019/11/26/activity/1574763941322activity_pic_optimal.jpg",START_ACT_DATE:"2019-11-26",ROWID:"1912060922019972"},
+      {W_ACT_ID:1911261825003295,TITLE:"灯具安装10元起",CONTENT:"<p><br></p>",CREATE_DATE:null,END_ACT_DATE:null,FLAG:1,ACT_PRICE:12.80,CLIENT_CLASS_ID:1908221100043420,POSITION_NO:"轮播3",CLIENT_ID:1907101446022563,AMOUNT_UNIT:"元/个",COMPANY_NAME:"绿城安装公司",ADDRESS:"广西壮族自治区南宁市西乡塘区",LNG:"108.330503",LAT:"22.86357",BAIDU_MAP_NO:"261",CLIENT_CLASS_NAME:"活动推广",IMG_URL:"/images/course/recommend03.jpg",IMG_URL2:"http://zxjphoto.oss-cn-shenzhen.aliyuncs.com/photo/2019/11/26/activity/1574763941322activity_pic_optimal.jpg",START_ACT_DATE:"2019-11-26",ROWID:"1912060922019973"},
+      {W_ACT_ID:1911261825003296,TITLE:"灯具安装10元起",CONTENT:"<p><br></p>",CREATE_DATE:null,END_ACT_DATE:null,FLAG:1,ACT_PRICE:12.80,CLIENT_CLASS_ID:1908221100043420,POSITION_NO:"轮播4",CLIENT_ID:1907101446022564,AMOUNT_UNIT:"元/个",COMPANY_NAME:"绿城安装公司",ADDRESS:"广西壮族自治区南宁市西乡塘区",LNG:"108.330503",LAT:"22.86357",BAIDU_MAP_NO:"261",CLIENT_CLASS_NAME:"活动推广",IMG_URL:"/images/course/recommend04.jpg",IMG_URL2:"http://zxjphoto.oss-cn-shenzhen.aliyuncs.com/photo/2019/11/26/activity/1574763941322activity_pic_optimal.jpg",START_ACT_DATE:"2019-11-26",ROWID:"1912060922019974"},
+       ],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+
     goodsCollectList:null,
     advanced:null,
     listData:[],
-    current: '0',
+    current: '1910251543017244',
     dataList:[
       { id:'1',title:'装修公司',src:'/images/course/zxgs.png',isClick:false},
-      { id: '2', title:'找设计师',src:'/images/course/zsjs.png'},
-      { id: '3', title: '监理工匠', src:'/images/course/jlgj.png'},
-      { id:'4',title:'全屋定制',src:'/images/course/qwdz.png'},
-      { id:'5',title:'装修行用',src:'/images/course/zxxy.png'},
+      { id: '2', title: '监理工匠', src:'/images/course/jlgj.png'},
+      { id: '3', title: '全屋定制', src:'/images/course/qwdz.png'},
+      { id: '4', title: '装修信用', src:'/images/course/zxxy.png'},
+      { id: '5', title: '材料知识', src:'/images/course/clzs.png'},
       { id:'6',title:'装修攻略',src:'/images/course/zxgl.png'},
       { id:'7',title:'业主社区',src:'/images/course/yzsq.png'},
       { id:'8',title:'小区活动',src:'/images/course/xqhd.png'},
@@ -22,18 +52,19 @@ Page({
     ],
 
     activityList:[//活动
-      {id:'ws_activity01',imgurl:'/images/course/ws_activity01.jpg'},
-      {id:'ws_activity02',imgurl:'/images/course/ws_activity02.jpg'},
-      {id:'ws_activity03',imgurl:'/images/course/ws_activity03.jpg'},
-      {id:'ws_activity04',imgurl:'/images/course/ws_activity04.jpg'}
+      {id:'ws_activity01',imgurl:'/images/course/ws_activity01.png'},
+      {id:'ws_activity02',imgurl:'/images/course/ws_activity02.png'},
+      {id:'ws_activity03',imgurl:'/images/course/ws_activity03.png'},
+      {id:'ws_activity04',imgurl:'/images/course/ws_activity04.png'}
     ],
 
     designerList:[//设计师
-      {id:'designerave01',aveUrl:'/images/course/designerave01.jpg'},
-      {id:'designerave02',aveUrl:'/images/course/designerave02.jpg'},
-      {id:'designerave03',aveUrl:'/images/course/designerave03.jpg'},
-      { id: 'designerave04', aveUrl: '/images/course/designerave04.jpg' },
-      {id:'designerave05',aveUrl:'/images/course/designerave04.jpg'},
+      {id:'designerave01',aveUrl:'/images/course/designerave01.png'},
+      {id:'designerave02',aveUrl:'/images/course/designerave02.png'},
+      {id:'designerave03',aveUrl:'/images/course/designerave03.png'},
+      { id: 'designerave04', aveUrl: '/images/course/designerave04.png' },
+      {id:'designerave05',aveUrl:'/images/course/designerave05.png'},
+      {id:'designerave06',aveUrl:'/images/course/designerave06.png'},
     ],
 
     recommendList:[],
@@ -83,8 +114,12 @@ Page({
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {
+            var recommendList = res.data.map((item)=>{
+              var funGetFirstPic = that.getFirstPic(item.articleNotes)
+              return {...item,itemImg:funGetFirstPic}
+            })
             that.setData({
-              recommendList: res.data,
+              recommendList: recommendList,
             });
           }
         }
@@ -101,6 +136,12 @@ Page({
     // wx.navigateTo({
     //   url: '../classify/classify'
     // })
+  },
+
+  openActivity: function (e) {
+    wx.navigateTo({
+      url: '/pages/activity/activity?id=' + e.currentTarget.dataset.id
+    })
   },
 
   listClick: function (e){
@@ -215,6 +256,14 @@ Page({
     })
   },
 
+  getFirstPic(str) {
+    let data = ''
+    str.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/, function(match, capture) {
+      data = capture
+    })
+    return data
+  },
+
    /**
    * 生命周期函数--监听页面显示
   */
@@ -222,13 +271,7 @@ Page({
   var that = this
   that.getGoodsCollectList() //获取大类
 
-  function getFirstPic(str) {
-    let data = ''
-    str.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/, function(match, capture) {
-      data = capture
-    })
-    return data
-  }
+  
 
   //获取所有List
   wx.showLoading({
@@ -240,7 +283,7 @@ Page({
       if (res.status) {
         if (res.data.length > 0) {
           var recommendList = res.data.map((item)=>{
-            var funGetFirstPic = getFirstPic(item.articleNotes)
+            var funGetFirstPic = that.getFirstPic(item.articleNotes)
             return {...item,itemImg:funGetFirstPic}
           })
           that.setData({

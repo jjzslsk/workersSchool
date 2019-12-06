@@ -1,4 +1,5 @@
 
+  <scroll-view scroll-y class='scroll-area'>
 
 <!-- <view class="show" style="color:{{isShowcolor1}};" wx:if="{{isShow}}" bindtap='isShowBut'>隐藏主题</view>
 <view class="show" style="color:{{isShowcolor2}};" wx:else bindtap='isShowBut'>显示主题</view> -->
@@ -21,14 +22,7 @@
   <!-- <view class="i-tag-green-border i-tag">
   </view> -->
     
-<view class="tag-box">
-  <view class="tag-item" wx:for="{{searchObj}}" wx:key="index" wx:for-item="item" wx:for-index="index" color="green" style="margin-right:10px;">
-    {{item.CLASS_NAME}}
-    <view class="badge-box" bindtap='badgeClick' data-index='{{index}}' data-itemindex='{{item}}'>
-      <view class="badge-but">x</view>
-    </view>
-  </view>
-</view>
+
 
 <i-tabs current="{{ current_scroll2 }}" scroll bindchange="handleChangeScroll2">
      <i-tab  wx:for="{{advanced}}" wx:for-item="item" wx:key="SYS_PARAMS_CLASS_ID" key="{{item.SYS_PARAMS_CLASS_ID}}" title="{{item.CLASS_NAME}}"></i-tab>
@@ -36,7 +30,17 @@
     <view class="wrap-item">
     <view class="item-but" wx:for="{{goodsCollectList}}" bindtap="ListBtnclick" data-items="{{items}}" data-classname="{{items.CLASS_NAME}}" wx:for-item="items" wx:key="SYS_PARAMS_CLASS_ID" wx:if="{{current_scroll2 == items.CLASS_PARENT_ID}}" type="success" shape="circle" size="small">{{items.CLASS_NAME}}</view>
     </view>
+
+    <view class="tag-box">
+      <view class="tag-item" wx:for="{{searchObj}}" wx:key="index" wx:for-item="item" wx:for-index="index" color="green" style="margin-right:10px;">
+        {{item.CLASS_NAME}}
+        <view class="badge-box" bindtap='badgeClick' data-index='{{index}}' data-itemindex='{{item}}'><view class="badge-but">x</view></view>
+      </view>
+    </view>
+    
 </i-panel>
+
+
 
         <!-- <view wx:if="{{isShow}}" class='aui-flex-col aui-flex-middle picked-img-info'>
           <view class='aui-flex-item-3 picked-img-item'>
@@ -51,12 +55,7 @@
         </view> -->
 
 <!-- <view class="container" style="height:{{editorHeight}}px;"> -->
-<view class="container">
-  <editor id="editor" class="ql-container" showImgSize showImgToolbar showImgResize placeholder="{{placeholder}}" bindinput="getEditorValue" bindstatuschange="onStatusChange" bindready="onEditorReady">
-  </editor>
-</view>
-
-<view class="toolbar" catchtouchend="format" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
+  <view class="toolbar" catchtouchend="format" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
   <i class="iconfont icon-charutupian" data-index='2' catchtouchend="insertImage"></i>
   <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
   <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
@@ -69,10 +68,19 @@
   <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
   <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
 </view>
-<view class='commit-btn' data-step="2" bindtap='setStep'>发布</view>
-  {{testdata}}
+
+<view class="container">
+  <editor id="editor" class="ql-container" showImgSize showImgToolbar showImgResize placeholder="{{placeholder}}" bindinput="getEditorValue" bindstatuschange="onStatusChange" bindready="onEditorReady">
+  </editor>
+</view>
+
+<view class="commit-box">
+  <view class='commit-btn' data-step="2" bindtap='setStep'>发布</view>
+</view>
+  
 
   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 <i-toast id="toast" />
 
 
+  </scroll-view>

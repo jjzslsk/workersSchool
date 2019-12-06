@@ -40,7 +40,7 @@ Page({
     articleNotes:{},//富文本内容
 
     current_scroll:'',
-    current_scroll2:'',
+    current_scroll2:'1910251543017244',
     current_scroll3:'tab3',
     current_scroll4:'tab4',
     current_scroll5:'tab5',
@@ -646,14 +646,6 @@ Page({
     // console.log(pickedImgs[uploadedImgIndex])
     var uploadedImgs = that.data.uploadedImgs
 
-    var searchArrName = []
-      that.data.searchObj.forEach((item)=>{
-        searchArrName.push(item.CLASS_NAME)
-      })
-      that.setData({
-        searchName:String(searchArrName)
-      })
-
     var uploadImgParam = {
       attUser: app.globalData.userId,
       attFkId: that.data.orderId,
@@ -726,8 +718,75 @@ Page({
 
   },
 
+  resetPage: function(){
+    var that = this
+    that.editorCtx.clear()
+    that.setData({
+      userInfo:{},
+      advanced:[],//一级数据
+      searchKey:[],
+      searchObj:[],
+      spinShow: false,
+      tags:[],
+      goodsCollectList:null,
+      isShow:true,
+      isShowcolor1:'#41CC8E',
+      isShowcolor2:'#777',
+      formats: {},
+      readOnly: false,
+      placeholder: '开始输入内容...',
+      editorHeight: 300,
+      keyboardHeight: 0,
+      isIOS: false,
+      pageData:{
+        content:'',//初始化内容
+      },
+      pickedImgs: [], //需要提交的图片
+      compressImgs: [],
+      compressImgsIndex: 0,
+      uploadedImgs: [],
+      uploadedImgIndex: 0,
+      orderId:'',
+      articleTitle:'',
+      searchName:'',
+      articleDescribe:'',
+      articleNotes:{
+        html:''
+      },//富文本内容
+      current_scroll:'',
+      current_scroll2:'',
+      current_scroll3:'tab3',
+      current_scroll4:'tab4',
+      current_scroll5:'tab5',
+      current_scroll6:'tab6',
+      currentItem:'',
+      activeTag1:'2',
+      activeTagfont:{
+        num1:'',
+        num2:'',
+        num3:''
+      },
+      activeTag2:'',
+      SYS_PARAMS:'',
+    })
+    wx.switchTab({
+      url: '/pages/index/index',
+      })
+      that.onLoad()
+      that.onShow()
+  },
+
   commit: function (e) {
     var that=this
+    var searchArrName = []
+    that.data.searchObj.forEach((item)=>{
+      searchArrName.push(item.CLASS_NAME)
+    })
+    that.setData({
+      searchName:String(searchArrName)
+    })
+    if(that.data.searchObj.length <= 0) return
+
     var param = {
       createName: app.globalData.userId,
       paramsClassNo: "Article_CLASS_1",//配送说明
@@ -751,14 +810,12 @@ Page({
             content: '已提交',
             success(res) {
               if (res.confirm) {
-                wx.switchTab({
-                  url: '/pages/index/index',
-                  })
+                param = {}
+                that.resetPage()
                 } else if (res.cancel) {
                 //点击取消
-                wx.switchTab({
-                  url: '/pages/index/index',
-                  })
+                param = {}
+                that.resetPage()
                 }
             }
           });
@@ -766,17 +823,15 @@ Page({
         } else {
           wx.showModal({
             title: '提示',
-            content: '提交失败',
+            content: '提交失败,请重新发布',
             success(res) {
               if (res.confirm) {
-                wx.switchTab({
-                  url: '/pages/index/index',
-                  })
+                param = {}
+                that.resetPage()
                 } else if (res.cancel) {
                 //点击取消
-                wx.switchTab({
-                  url: '/pages/index/index',
-                  })
+                param = {}
+                that.resetPage()
                 }
             }
           });

@@ -7,7 +7,7 @@
     /* display:none; */
 }
 .i-tabs-tab-title{
-  font-size:12px;
+  font-size:14px;
   text-align:center;box-sizing:border-box;color:#80848f}
   
   .i-tabs-tab-title-current{
@@ -22,5 +22,8 @@
 .i-tabs-tab-scroll{
     display:inline-block;
     /* width:60px; */
-    width:auto;
+    /* width:auto; */
+
+    width: 25%;
+
 }

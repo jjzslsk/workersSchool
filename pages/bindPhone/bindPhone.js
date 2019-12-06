@@ -179,7 +179,7 @@ Page({
                 param.account = userInfo.nickName; //昵称
                 param.CLIENT_ACCOUNT = userInfo.nickName; //昵称
                 param.avatar = userInfo.avatarUrl;//头像
-                param.openId3 = resultData.openid; //openid
+                param.openId4 = resultData.openid; //openid
                 param.unionId = resultData.unionid; //unionid
                 param.phone = phone; //手机号
                 param.verifyCode = smsCode; //短信验证码

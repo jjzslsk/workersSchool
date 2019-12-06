@@ -27,11 +27,13 @@ page {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  font-size: 16px;
   line-height: 1.5;
   overflow: auto;
   padding: 0px 10px 0px 10px;
-  border: 1px solid #ECECEC;
+  border: 1px solid #fff;
+
+  /* 新增 */
+  font-size: 14px;
 }
 
 .ql-active {
@@ -51,10 +53,10 @@ page {
   padding: 0 10px;
   height: 50px;
   width: 100%;
-  position: fixed;
+  /* position: fixed;
   left: 0;
   right: 100%;
-  bottom: 0;
+  bottom: 0; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,20 +66,26 @@ page {
   float: left;
   background: rgb(255, 255, 255);
 }
+.commit-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem 0;
+}
 
 .commit-btn{
   /* position: relative;z-index: 99;background: #259B24;color: #FFFFFF;font-size: 0.8em;text-align: center;height: 30px;line-height: 30px;width: 110px;margin: 20px auto;border-radius: 5px; */
-position: fixed;
+/* position: fixed;
 bottom: 3rem;
-right: 1rem;
+right: 1rem; */
 z-index: 99;
-color: #41CC8E;
+color: #fff;
+background: #41CC8E;
 font-size: 0.8em;
 display: inline-block;
-padding: .5rem 1rem 0 0;
 border-radius:15px;
-border: #41CC8E solid 1px;
-padding: 3px 14px;
+/* border: #41CC8E solid 1px; */
+padding: 6px 60px;
 }
 
 .picked-img-info{padding: 10px;box-sizing:border-box;}
@@ -97,9 +105,11 @@ padding: 3px 14px;
   font-size: 16px;
 }
 
-.tag-box{margin: 0.5rem 0.5rem;}
+.tag-box{margin: 0 0.5rem 0.5rem 0.5rem;}
 .wrap-item{display: flex;flex-wrap: wrap;padding: .4rem;}
-.item-but {height: 1.4rem;line-height: 1.4rem;text-align: center;min-width: 3rem;font-size: 12px;border-radius: 6px;background-color: rgb(216, 216, 216);color: #fff;padding: 1px 3px;margin: 0 .2rem;}
+.item-but {height: 1.4rem;line-height: 1.4rem;text-align: center;min-width: 3rem;font-size: 12px;border-radius: 6px;background-color: rgb(238, 238, 238);color: #999999;padding: 1px 3px;margin: 0 .2rem;}
 .tag-item {position: relative;display: inline-block;height: 18px;line-height: 18px;padding: 0 4px;border-radius: 2px;background: #fff;font-size: 11px;vertical-align: middle;border: 1rpx solid #dddee1;color: #19be6b;background: #fff;border-color: #19be6b;}
 .badge-box {padding: .5rem;position: absolute;top: -15px;right: -15px;z-index: 3;}
-.badge-but {color: #fff;border-radius:10px;display: flex;justify-content: center;align-items: center;width: .8rem;height: .8rem;background-color: red;}
+.badge-but {color: #fff;border-radius:10px;line-height: .8rem;text-align: center;width: .8rem;height: .8rem;background-color: red;}
+
+/* i-tab {background: #999999;} */

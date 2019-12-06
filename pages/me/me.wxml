@@ -54,7 +54,7 @@
             </i-grid-icon>
             <i-grid-label>我的发布</i-grid-label>
         </i-grid-item>
-        <i-grid-item data-type="commission" bindtap="">
+        <!-- <i-grid-item data-type="commission" bindtap="">
             <i-grid-icon>
                 <image style="width:100%;height:100%;" src="" />
             </i-grid-icon>
@@ -65,7 +65,7 @@
                 <image style="width:100%;height:100%;" src="" />
             </i-grid-icon>
             <i-grid-label></i-grid-label>
-        </i-grid-item>
+        </i-grid-item> -->
     </i-grid>
     </view>
       <!-- <view class='procedure'>
@@ -75,7 +75,7 @@
 
         </view> -->
   </view>
-  <view class='items' style='margin-top:1rem;'>
+  <view class='items' style='margin-top:.4rem;'>
     <view class='item-title'>基本信息</view>
     <i-grid>       
         <i-grid-item data-type="memberCenter" bindtap="openWXSubscription">
@@ -104,7 +104,7 @@
         </i-grid-item>
     </i-grid>
   </view>
-  <view class='items' style='margin-top:1rem;'>
+  <view class='items' style='margin-top:.4rem;'>
     <view class='item-title'>增值服务</view>
     <i-grid>
         <i-grid-item data-type="wzworker" bindtap="openPage">

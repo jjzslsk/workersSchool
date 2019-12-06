@@ -15,7 +15,7 @@ Page({
     content:'',
     lid:'',
     cmtList: [],
-
+    picListUrl:'',
   },
 
   openCmt: function (e) {
@@ -112,7 +112,6 @@ Page({
         if (msg.code == '0') {
           that.getCmtList()
           that.hideCmt()
-          console.log ('999')
         }
 
       },
@@ -127,10 +126,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log (JSON.stringify(options))
     var that = this
     that.setViewCount(options)
     that.setData({
-      lid:options.articleId
+      lid:options.articleId,
+      picListUrl:options.picListUrl
     })
     var p = 'SUBJECT_ID=' + that.data.lid;
     app.httpsGetDatByPlatform('bbs_subject_info', 'map', p,

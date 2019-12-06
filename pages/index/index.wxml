@@ -3,11 +3,28 @@
 <view class='body ws-info-area'>
   <scroll-view scroll-y class='scroll-area'>
     <view class='search-bar'>
+    <i class="aui-iconfont aui-icon-search"></i>
       <input class='search-input' placeholder='请输入搜索关键字'></input>
     </view>
-    <view class="ws-banner-img">
+
+      <swiper
+        class="banner-swiper"
+        indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}"
+        interval="{{interval}}"
+        duration="{{duration}}"
+        indicator-color="#41CC8E"
+      >
+        <block wx:for="{{bannerList}}" wx:for-item="banner" wx:key="index">
+          <swiper-item class="banner-swiper" bindtap="" data-id="{{banner.W_ACT_ID}}">
+            <image src="{{banner.IMG_URL}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+
+    <!-- <view class="ws-banner-img">
       <image src="/images/course/ws_banner.jpg" />
-    </view>
+    </view> -->
 
     <view class="aui-grid">
       <view class="aui-row">
@@ -41,17 +58,14 @@
     </view>
 
     <view class="designer-area">
-      <view class="aui-list aui-list-in" style="border-top:0;">
-        <view class="aui-list-item" style="border-bottom:0;">
-          <view class="aui-list-item-inner aui-list-item-arrow">
-            <view class="aui-list-item-title">设计师</view>
-            <view class="aui-list-item-right">更多</view>
+          <view class="designer-itemr">
+            <view class="designer-itemr-title">设计师</view>
+            <view class="designer-itemr-right">更多</view>
           </view>
-        </view>
-      </view>
+
       <view class="aui-grid">
         <view class="aui-row">
-          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
+          <view class="aui-col-xs-2 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
             <view class="designer-ave">
               <image src='{{item.aveUrl}}' />
             </view>
@@ -61,14 +75,9 @@
     </view>
 
     <view class="effect-picture">
-      <view class="aui-list aui-list-in" style="border-top: 0">
-        <view class="aui-list-item">
-          <view class="aui-list-item-inner">
-            <view class="aui-list-item-title">效果图</view>
-            <view class="aui-list-item-right" bindtap="classifyCilck">更多</view>
-
-          </view>
-        </view>
+      <view class="designer-itemrs" >
+        <view class="designer-itemr-title">效果图</view>
+        <view class="designer-itemr-right" bindtap="classifyCilck">更多</view>
       </view>
 
       <view class='tab-head'>
@@ -93,7 +102,7 @@
           <view class="ws-card-footer horizontal">
             <view class="company horizontal">
               <image src='{{item.picListUrl}}'/>
-              <view>{{item.createName}}</view>
+              <view class="item-name">{{item.createName}}</view>
             </view>
             <view class="ws-ft-btns horizontal">
               <view class="item-btn">
@@ -107,6 +116,8 @@
 
 
     </view>
+
+    
   </scroll-view>
 
 </view>

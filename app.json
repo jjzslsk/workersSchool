@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/me/me",
-    "pages/index/index",
     "editor/editor",
+    "pages/index/index",
+    "pages/me/me",
     "pages/detail/detail",
     "pages/classify/classify",
     "pages/logs/logs",

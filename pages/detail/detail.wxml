@@ -6,18 +6,26 @@
             <image class="" src='{{detailData.imgUrl}}' mode="scaleToFill" lazy-load="false" binderror="" bindload=""/>
         </view> -->
         <view class="main" hover-class="none" hover-stop-propagation="false">
+        <view class="main-head">
+                {{detailData.articleTitle}}
+            </view>
             <view class="main-text">
                 {{detailData.articleDescribe}}
             </view>
-            <view class="create-date">
+            <!-- <view class="create-date">
                 {{detailData.createDate}}
-            </view>
+            </view> -->
         </view>
-        <view class="bottm" hover-class="none" hover-stop-propagation="false">
-            <image class="" src="/images/course/recommend03.jpg" mode="" lazy-load="false" binderror="" bindload="">
+        <view class="bottm content-box" hover-class="none" hover-stop-propagation="false">
+        <view class="content-box-item">
+          <image class="" src="{{detailData.picListUrl}}" mode="" lazy-load="false" binderror="" bindload="">
             </image>
             <view class="bot-info">
                 {{detailData.createName}}
+            </view>
+        </view>
+             <view class="create-date">
+                {{detailData.createDate}}
             </view>
         </view>
     </view>
