@@ -62,7 +62,7 @@ Page({
 
     designerList:[//设计师
       {id:'designerave01',aveUrl:'/images/course/designerave01.png'},
-      {id:'designerave02',aveUrl:'/images/course/designerave02.png'},
+      // {id:'designerave02',aveUrl:'/images/course/designerave02.png'},
       {id:'designerave03',aveUrl:'/images/course/designerave03.png'},
       { id: 'designerave04', aveUrl: '/images/course/designerave04.png' },
       {id:'designerave05',aveUrl:'/images/course/designerave05.png'},

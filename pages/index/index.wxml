@@ -65,7 +65,7 @@
 
       <view class="aui-grid">
         <view class="aui-row">
-          <view class="aui-col-xs-2 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
+          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
             <view class="designer-ave">
               <image src='{{item.aveUrl}}' />
             </view>
