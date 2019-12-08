@@ -1,0 +1,13 @@
+<!--pages/suggest/suggest.wxml-->
+<view class='body'>
+  <textarea value='{{content}}' class='suggest' bindinput="onInputChange" bindfocus='onFocus' bindblur='onBlur' placeholder='{{placeHolder}}' maxlength="500"></textarea>
+  <view class="sel-pro-res" bindtap="selProRes">点击查看处理结果</view>
+  <view class='commit-btn' bindtap='commitSuggest'>提交</view>
+    <view class='tips'>
+    <view>您可以通过留言方式留下意见与建议</view>
+    <view>也可以通过以下方式：</view>
+    <view bindtap="call">免费服务热线：<text class='phone'>{{call}}</text></view>
+    <view>QQ专线：2809712409</view>
+    <view>邮箱：2809712409@qq.com</view>
+  </view>
+</view>

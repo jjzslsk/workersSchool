@@ -138,7 +138,6 @@ Page({
     wx.navigateTo({
       url: '/pages/wxSubscription/wxSubscription?type=' + type
     })
-
   },
   /**投诉建议 */
   complaintAdviceTap: function (e) {

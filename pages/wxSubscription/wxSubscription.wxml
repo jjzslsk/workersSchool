@@ -1,0 +1,5 @@
+<!--pages/wxSubscription/wxSubscription.wxml-->
+<view>
+  <web-view src="{{url}}"></web-view>
+</view>
+

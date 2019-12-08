@@ -1,5 +1,35 @@
 
-<i-tabs current="{{ current_scroll1 }}" scroll bindchange="handleChangeScroll1">
+  <scroll-view class="class-scroll" scroll-x wx:for="{{advanced}}" wx:for-item="item" wx:for-index="itemIndex" wx:key="SYS_PARAMS_CLASS_ID">
+    <view class="tab-wrap">
+          <!-- {{item.CLASS_NAME}} -->
+          <!-- <i-tabs class="tab-wrap" current="{{ current_scroll }}" scroll bindchange="handleChangeScroll1" >
+           <i-tab style="" class="tab-item" key="{{items.CLASS_NAME}}" bindtap="tabItem" data-item='item' wx:for="{{goodsCollectList}}" wx:for-item="items" wx:key="SYS_PARAMS_CLASS_ID" wx:if="{{item.SYS_PARAMS_CLASS_ID == items.CLASS_PARENT_ID}}" title="{{items.CLASS_NAME}}"></i-tab>
+          </i-tabs> -->
+          <view 
+            class="tab-item"
+            wx:for="{{goodsCollectList}}"
+            wx:for-item="items"
+            bindtap="tabItem" 
+            data-items="{{items}}"
+            data-item="{{item}}"
+            wx:for-index="itemsIndex"
+            data-itemIndex="{{itemIndex}}"
+            data-itemsIndex="{{itemsIndex}}"
+            wx:key="SYS_PARAMS_CLASS_ID"
+            wx:if="{{item.SYS_PARAMS_CLASS_ID == items.CLASS_PARENT_ID}}">
+             <view class="tab-item-text {{items.checked ? 'tab-item-text-color':''}}"  >
+                 {{items.CLASS_NAME}}{{items.checked}}
+             </view>
+          </view>
+    </view>
+  </scroll-view>
+
+<view wx:for='{{searchKey}}' wx:for-index="SYS_PARAMS_CLASS_ID">
+  {{item.CLASS_NAME}}
+</view>
+  
+
+<!-- <i-tabs current="{{ current_scroll1 }}" scroll bindchange="handleChangeScroll1">
     <i-tab key="tab1" title="全部"></i-tab>
     <i-tab key="tab2" title="客厅"></i-tab>
     <i-tab key="tab3" title="餐厅"></i-tab>
@@ -31,4 +61,4 @@
     <i-tab key="tab7" title="选项7"></i-tab>
     <i-tab key="tab8" title="选项8"></i-tab>
     <i-tab key="tab9" title="选项9"></i-tab>
-</i-tabs>
+</i-tabs> -->

@@ -1,0 +1,47 @@
+/* pages/suggest/suggest.wxss */
+
+.body {
+  width: 100%;
+  height: 100vh;
+  background: #f1f1f1;
+}
+
+.suggest {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 0.8em;
+  background: #fff;
+}
+
+.sel-pro-res {
+  text-align: right;
+  padding: 8px 10px;
+  color: #0000FF;
+}
+
+.commit-btn {
+  width: 70%;
+  margin-left: 15%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #fff;
+  background: #41cc8e;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.tips {
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 0.8em;
+  margin-top: 20px;
+  line-height: 20px;
+}
+
+.phone{
+  color:#0000FF;
+}

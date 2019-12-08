@@ -1,0 +1,12 @@
+<!--pages/help/help.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class='body'>
+  <scroll-view scroll-y class='scroll-area'>
+    <view class="questions-title">常见问题解答</view>
+    <view class="questions">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    
+  </scroll-view>  
+</view>
+

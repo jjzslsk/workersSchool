@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-card": "../../dist/card/index"
+  },
+  "navigationBarTitleText": "常见问题"
+}

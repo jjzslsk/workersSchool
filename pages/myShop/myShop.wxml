@@ -1,0 +1,6 @@
+<!--pages/myWorker/myWorker.wxml-->
+<scroll-view scroll-y scroll-x="true" class='scroll-area'> 
+<view class="body" >
+    <image class="" src="{{imgUrl}}" mode="widthFix" lazy-load="false" binderror="" bindload=""  bindtap="previewImage"/>
+</view>   
+ </scroll-view>    

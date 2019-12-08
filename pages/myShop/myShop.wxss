@@ -1,0 +1,9 @@
+/* pages/myWorker/myWorker.wxss */
+.body {
+  width: 100vw;
+  height: 100vh;
+}
+.body image {
+  width: 100%;
+  height: 100%;
+}

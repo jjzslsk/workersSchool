@@ -1,0 +1,30 @@
+<!--pages/suggestProRes/suggestProRes.wxml-->
+<view class='body-bg'>
+  <scroll-view scroll-y class='scroll-area'>
+    <view wx:if="{{dataList.length>0}}">
+      <view class="pro-res-item" wx:for="{{dataList}}" wx:for-item="dataItem" wx:for-index="dataIndex" wx:key="ID">
+        <view class="pro-res-item-row">
+          <view class="title">问题:</view>
+          <view class="content">{{dataItem.CONTENT}}</view>
+        </view>
+        <view class="pro-res-item-row">
+          <view class="title">创建时间:</view>
+          <view class="content">{{dataItem.CREATE_DATE}}</view>
+        </view>
+        <view class="pro-res-item-row">
+          <view class="title">处理结果:</view>
+          <view class="content" wx:if="{{dataItem.STATUS==undefined || dataItem.STATUS==null || dataItem.STATUS=='' || dataItem.STATUS==0}}">等待受理</view>
+          <view class="content" wx:else>已受理</view>
+        </view>
+        <view class="pro-res-item-row">
+          <view class="title">处理描述:</view>
+          <view class="content" wx:if="{{dataItem.MEMO==undefined || dataItem.MEMO==null || dataItem.MEMO=='' || dataItem.MEMO==0}}"></view>
+          <view class="content" wx:else>{{dataItem.MEMO}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:else style="margin:3rem auto 0 auto;text-align: center;">
+      <image lazy-load="true" style="height:10rem;width:10rem;" mode="widthFix" src='/images/orderTypeIcon/nullImg.png' />
+    </view>
+  </scroll-view>
+</view>

@@ -1,1 +1,12 @@
-/* pages/classify/classify.wxss */
+i-tabs {margin: .7rem 0 0 0;overflow: auto;display: block;}
+i-tabs i-tab{margin: 0 .8rem;}
+/* .tab-wrap {background: red !important;}
+.tab-item {background: rebeccapurple !important;}
+i-badge {display: flex;align-items: center;justify-content: center;}
+.i-tabs-tab-scroll {background: chartreuse !important;} */
+
+.class-scroll {white-space:nowrap;}
+.tab-wrap {overflow: auto;height: 1.5rem;display: flex;align-items: center;padding: .5rem 0;}
+.tab-item {border-radius:15px;background: #ddd;display: flex;justify-content: center;align-items: center;margin: 0 .5rem;}
+.tab-item-text {min-width: 4rem;font-size: 12px;color: #000;padding:3px 4px;display:inline-block;display: flex;justify-content: center;align-items: center;}
+.tab-item-text-color {color: crimson !important;}

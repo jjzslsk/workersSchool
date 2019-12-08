@@ -175,15 +175,7 @@ Page({
         }else {
 
         }
-        
 
-        // {
-          
-        //   console.log ('不相同')
-        // }else {
-        //   console.log ('相同')
-
-        // }
       })
 
       if(condition == false){

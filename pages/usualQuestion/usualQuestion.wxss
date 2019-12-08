@@ -1,0 +1,27 @@
+/* pages/help/help.wxss */
+@import "../../utils/flex.wxss";
+.body{width: 100%;height: 100vh;}
+.scroll-area {height:100%;}
+.title{color: #41CC8E;font-size: 0.8em;padding: 5px 0;background: #EBFFF6;width: 100px;text-align: center;margin: 10px 10px 0 10px;}
+.content{padding: 10px;box-sizing:border-box;font-size: 0.8em;}
+.cl-org{color: #FCAD53}
+.tips{background: #41CC8E;padding:10px 5px;box-sizing:border-box;font-size: 0.7em;border-radius: 5px;}
+.tips-title{font-size: 1.25em;margin: 5px 0;}
+.flex-item-step{width:14%;float: left;padding: 5px;box-sizing:border-box;font-size: 0.7em;text-align: center;}
+.flex-item-arrow{width:7.5%;float: left;padding: 5px;box-sizing:border-box;}
+.step-img{width: 100%;}
+.padding-0{padding: 0;}
+.confirm-btn{width: 200px;text-align: center;height:40px;line-height: 40px;border-radius: 50px;background: #41CC8E;color: #FFFFFF;font-size: 0.8em;margin: 5px auto;}
+.footer{position: fixed;width: 100%;height:50px;line-height: 50px;bottom: 0;background: #FFFFFF;border-top: 1px #DDDDDD solid;box-sizing:border-box;}
+
+.questions-title{margin-top: 20px;font-weight: bold;font-size: 0.8em;padding: 10px 10px 0 10px;}
+.questions{font-size: 0.7em;padding: 10px 10px;}
+
+.content-info{width:100%;}
+.questions-title {
+  margin: 5px;
+  text-align: center;
+  font-size:35px;
+  color: #000000;
+  font-weight: bold;
+}

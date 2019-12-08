@@ -164,6 +164,7 @@ App({
                   that.globalData.level = loginRet.data.clientLevel;
                   that.globalData.phone = loginRet.data.clientPhone;
                   that.globalData.userName = loginRet.data.clientAccount;
+                  that.globalData.loginUser = loginRet.data
                   that.setZxjToken(loginRet.data.token);
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
@@ -708,14 +709,41 @@ App({
     // url: 'https://www.zxj888.cn:8443', //正式环境接口域名
     // urlFs: 'https://www.zxj888.cn:9443', //正式环境接口域名
     // websocketUrl: 'wss://zxj888.cn:9443/zxj/websocket', //正式环境websocket
+
     url: 'https://www.zxjtest.xyz', //开发环境接口域名
     urlFs: 'https://www.zxjtest.xyz:9443', //开发环境接口域名
     websocketUrl: 'wss://zxjtest.xyz:9443/zxj/websocket',//开发环境websocket
-    js_code: '',
+
+    baiduUrl: 'https://api.map.baidu.com', //百度ip
+    realTimeCustomer: '60E246CB7star_red.pngdddddddddB645273DCF2DC4E18B4AEF9',//customer(快递100实时查询接口)
+    realTimeKey: 'ImODrCSn9734',//key(快递100实时查询接口)
+    curCityId: '', //当前城市id
+    curCity: '', //当前城市名称
     userInfo: null, //微信用户信息
     openId: '', //用户唯一标识
-    unionid: '', //微信开放平台管理的应用唯一标识
+    unionid: '',//微信开放平台管理的应用唯一标识
     userId: '', //用户id
     sessionKey: '',
-  }
+    starLevel: 0,
+    level: 0,
+    phone: '', //手机号
+    userName: '', //用户名称
+    userAvatar: '', //用户头像
+    accountBalance: 0,//账户余额
+    gzhurl: 'https://www.zxj888.cn:8443', //所有涉及公众号的都调到正式环境
+  },
+  
+  /**退出登录，清空小程序用户信息数据*/
+  clearUserInfo: function () {
+    this.globalData.userInfo = null;
+    this.globalData.openId = '';
+    this.globalData.sessionKey = '';
+  },
+
+  //装小匠客服
+  customerService: {
+    id: 'zxj_service',
+    name: '装小匠客服',
+    avatar: '/images/orderTypeIcon/kefu.png'
+  },
 })

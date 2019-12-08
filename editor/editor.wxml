@@ -19,14 +19,16 @@
           </i-tabs>
     </view>
   </view> -->
+  
   <!-- <view class="i-tag-green-border i-tag">
   </view> -->
     
 
 
-<i-tabs current="{{ current_scroll2 }}" scroll bindchange="handleChangeScroll2">
+<i-tabs current="{{ current_scroll2 }}" bindchange="handleChangeScroll2">
      <i-tab  wx:for="{{advanced}}" wx:for-item="item" wx:key="SYS_PARAMS_CLASS_ID" key="{{item.SYS_PARAMS_CLASS_ID}}" title="{{item.CLASS_NAME}}"></i-tab>
 </i-tabs>
+
     <view class="wrap-item">
     <view class="item-but" wx:for="{{goodsCollectList}}" bindtap="ListBtnclick" data-items="{{items}}" data-classname="{{items.CLASS_NAME}}" wx:for-item="items" wx:key="SYS_PARAMS_CLASS_ID" wx:if="{{current_scroll2 == items.CLASS_PARENT_ID}}" type="success" shape="circle" size="small">{{items.CLASS_NAME}}</view>
     </view>

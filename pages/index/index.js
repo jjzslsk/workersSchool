@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    startPage:1,
+    recordSize:90,
     bannerList: [
       {W_ACT_ID:1912020846005770,
         TITLE:"空调深度保养",
@@ -104,7 +106,7 @@ Page({
       // recommendList: this.data.recommendListData01[detail.key]
     });
     if(!detail.key) return
-    var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&classParentId='+ detail.key;
+    var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&classParentId=' + detail.key + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
     wx.showLoading({
       title: '加载中',
     })
@@ -277,7 +279,7 @@ Page({
   wx.showLoading({
     title: '加载中',
   })
-  var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1';
+   var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
   app.httpsDataGet('/shop/getArticleListForSchool', Param,
     function (res) {
       if (res.status) {
