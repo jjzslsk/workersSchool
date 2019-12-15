@@ -21,7 +21,7 @@
             <!-- <view class="make">预约</view> -->
           </view>
           <view class='post-time'>
-            <text class='user-text'>设计师等级:{{item.CLIENT_LEVEL}}级</text>
+            <text class='user-text'>等级:{{item.CLIENT_LEVEL}}级</text>
             <text class='user-text border-l'>12年工龄</text>
             <text class='user-text border-l'>粉丝:30人</text>
             <!-- <text class='distance'>123km</text> -->
@@ -29,7 +29,7 @@
           <view class='motto aui-ellipsis-1'>个性签名:用心体验，打造舒适健康的家</view>
         </view>
           <view class="worker-content" wx:if="{{item.article}}">
-            <view class="content-title" bindtap='articleList' data-userId='{{item.CLIENT_ID}}'>
+            <view class="content-title" data-userId='{{item.CLIENT_ID}}'>
               <view class="">设计方案</view>
               <view class="title-more" bindtap="articleList" data-userId='{{item.CLIENT_ID}}'>更多></view>
             </view>

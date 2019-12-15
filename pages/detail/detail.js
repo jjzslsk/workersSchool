@@ -172,7 +172,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    app.httpsDataGet('/shop/getArticleListForSchool', aParam1,
+    app.httpsDataGet('/school/getArticleListForSchool', aParam1,
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {

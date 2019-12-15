@@ -1,4 +1,3 @@
-// pages/wxSubscription/wxSubscription.js
 const app = getApp()
 Page({
 

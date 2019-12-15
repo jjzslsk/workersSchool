@@ -16,7 +16,23 @@ Page({
     qualification:[],
     workPics:[],
     bbsList:[],
-    isConcern:'0'
+    isConcern:'0',
+    pickedClass: 'ALL',
+    pickedClassName: '全部',
+    startPage: 1,
+    recordSize: 90,
+    clientId:'',
+
+    goodsCollectList:[],
+    advanced:[],
+    current_scroll:'',
+    searchKey:[],
+    isColor:false,
+    searchName:[],//关键词
+    recommendList:[],
+    parentColor:true,
+    unfold:false,
+    topBox:'',
   },
 
   userImg(){
@@ -180,10 +196,69 @@ Page({
     })
   },
 
+  //详情页
+  listClick: function (e){
+    wx.navigateTo({
+      url: '../detail/detail?articleId=' 
+        + e.currentTarget.dataset.item.articleId
+        + '&createName=' + e.currentTarget.dataset.item.createName 
+        + '&picListUrl=' + e.currentTarget.dataset.item.picListUrl
+    })
+  },
+
+  //获取第一张图片
+  getFirstPic(str) {
+    let data = ''
+    str.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/, function(match, capture) {
+      data = capture
+    })
+    return data
+  },
+
+  handleChange(detail) {
+    var that = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    if(detail) {
+      var Param = 'createName=' + detail + '&type=Article_CLASS_1' + '&startPage=1' + '&recordSize=2';
+      app.httpsDataGet('/school/getArticleListForSchool', Param,
+      function (res) {
+        if (res.status) {
+          if (res.data.length > 0) {
+            var recommendList = res.data.map((item)=>{
+              var funGetFirstPic = that.getFirstPic(item.articleNotes)
+              return {...item,itemImg:funGetFirstPic}
+            })
+            that.setData({
+              recommendList: recommendList,
+            });
+          }else{
+            that.setData({
+              recommendList: [],
+            });
+          }
+        }
+      },
+      function (res) {
+        //失败
+        wx.hideLoading()
+      }
+    )
+    }
+  },
+
+  articleList(){
+    wx.navigateTo({
+      url: '/pages/articleList/articleList?userid=' + this.data.workerId
+    }) 
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log (JSON.stringify(options))
     var id = options.id//'1903141141000740'//
     var classId = ''
     if (options.classId)
@@ -207,59 +282,59 @@ Page({
 
     
     var param = 'clientId=' + id + '&userId=' + app.globalData.userId;
-    // app.httpsDataGet('/worker/getWorkerDetail', param,
-    //   function (res) {
-    //     var workerTypeName = []
-    //     var workerTypeId = []
-    //     if (res.data.workerType && res.data.workerType.length>0){
-    //       for (var i = 0; i < res.data.workerType.length;i++){
-    //         workerTypeName.push(res.data.workerType[i].class_name)
-    //         workerTypeId.push(res.data.workerType[i].CLIENT_CLASS_ID)
-    //       }
+    app.httpsDataGet('/worker/getWorkerDetail', param,
+      function (res) {
+        var workerTypeName = []
+        var workerTypeId = []
+        if (res.data.workerType && res.data.workerType.length>0){
+          for (var i = 0; i < res.data.workerType.length;i++){
+            workerTypeName.push(res.data.workerType[i].class_name)
+            workerTypeId.push(res.data.workerType[i].CLIENT_CLASS_ID)
+          }
           
-    //     }
+        }
 
-    //     var qualification = []
-    //     for (var i = 0; i < res.data.qualification.length; i++) {
-    //       qualification[i] = res.data.qualification[i].url
-    //     }
+        var qualification = []
+        for (var i = 0; i < res.data.qualification.length; i++) {
+          qualification[i] = res.data.qualification[i].url
+        }
 
-    //     var workPics = []
-    //     for (var i = 0; i < res.data.workPics.length; i++) {
-    //       workPics[i] = res.data.workPics[i].url
-    //     }
+        var workPics = []
+        for (var i = 0; i < res.data.workPics.length; i++) {
+          workPics[i] = res.data.workPics[i].url
+        }
 
-    //     var cmts = []
-    //     var cmts_i=0
-    //     for (var i = 0; i < res.data.comments.length; i++) {
-    //       if (res.data.comments[i].content){
-    //         var name = res.data.comments[i].CLIENT_ACCOUNT.substr(0, 1) + '**'
-    //         res.data.comments[i].clientName = name
+        var cmts = []
+        var cmts_i=0
+        for (var i = 0; i < res.data.comments.length; i++) {
+          if (res.data.comments[i].content){
+            var name = res.data.comments[i].CLIENT_ACCOUNT.substr(0, 1) + '**'
+            res.data.comments[i].clientName = name
             
-    //         cmts[cmts_i] = res.data.comments[i]
-    //         cmts_i++
-    //       }
-    //     }
+            cmts[cmts_i] = res.data.comments[i]
+            cmts_i++
+          }
+        }
 
-    //     res.data.mainComments = cmts
+        res.data.mainComments = cmts
 
-    //     res.data.shortName = res.data.CLIENT_ACCOUNT.substr(0, 1) + '师傅'
+        res.data.shortName = res.data.CLIENT_ACCOUNT.substr(0, 1) + '师傅'
 
-    //     that.setData({
-    //       detail: res.data,
-    //       workerTypeName: workerTypeName,
-    //       workerTypeId: workerTypeId,
-    //       qualification: qualification,
-    //       workPics: workPics,
-    //       isConcern: res.data.isConcern
-    //     });
+        that.setData({
+          detail: res.data,
+          workerTypeName: workerTypeName,
+          workerTypeId: workerTypeId,
+          qualification: qualification,
+          workPics: workPics,
+          isConcern: res.data.isConcern
+        });
 
-    //   },
-    //   function (returnFrom, res) {
-    //     //失败
-    //     wx.hideLoading()
-    //   }
-    // )
+      },
+      function (returnFrom, res) {
+        //失败
+        wx.hideLoading()
+      }
+    )
 
     var p = 'CLIENT_ID=' + id + '&START_POSITION=0' + '&END_POSITION=30' + '&MY_CLIENT_ID=' + app.globalData.userId
     app.httpsGetDatByPlatform('bbs_my_page', 'list', p,
@@ -291,6 +366,10 @@ Page({
         wx.hideLoading();
       }
     );
+
+    this.handleChange(options.id)
+
+
   },
 
   /**

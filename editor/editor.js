@@ -12,9 +12,7 @@ Page({
     searchKey:[],
     searchObj:[],
     spinShow: false,
-
     tags:[],
-
     goodsCollectList:null,
     isShow:true,
     isShowcolor1:'#41CC8E',
@@ -38,14 +36,7 @@ Page({
     searchName:'',
     articleDescribe:'',
     articleNotes:{},//富文本内容
-
-    current_scroll:'',
     current_scroll2:'1910251543017244',
-    current_scroll3:'tab3',
-    current_scroll4:'tab4',
-    current_scroll5:'tab5',
-    current_scroll6:'tab6',
-
     currentItem:'',
     activeTag1:'2',
     activeTagfont:{
@@ -116,13 +107,7 @@ Page({
     itemSysParamsId = event.currentTarget.dataset.item.SYS_PARAMS_CLASS_ID //子级Id
     itemsSysParentId = event.currentTarget.dataset.items.CLASS_PARENT_ID //所有对象的父ID
     if(itemSysParamsId == itemsSysParentId){
-      
     }
-
-    console.log (this.data.activeTag2)
-    console.log ('33',event.currentTarget.dataset.items)
-    console.log ('44',event.currentTarget.dataset.item)
-
 },
 
   badgeClick(e){
@@ -191,30 +176,6 @@ Page({
         })
 
     }
-    // console.log (JSON.stringify(that.data.searchObj))
-
-    
-
-
-
-    console.log (JSON.stringify(that.data.searchKey))
-
-
-
-
-    // if(this.data.searchKey.length > 3){
-    //   wx.showToast({
-    //     title: '只允许选四个',
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    //   this.data.searchKey.join(","); 
-    // }else {
-    //   this.data.searchKey.push(e.currentTarget.dataset.classname)
-    //   this.setData({
-    //     searchKey:this.data.searchKey
-    //   })
-    // }
   },
 
   isShowBut(){
@@ -367,54 +328,12 @@ Page({
       text: formatDate
     })
   },
-
-  // //上传图片
-  // insertImage() { //  使用 catchtouchend 绑定事件则不会使编辑器失去焦点
-  //   const that = this
-  //   wx.chooseImage({
-  //     count: 1,
-  //     success: function (res) {
-  //       that.editorCtx.insertImage({
-  //         src: res.tempFilePaths[0],
-  //         data: {
-  //           id: 'abcd',
-  //           role: 'god'
-  //         },
-  //         width: '80%',
-  //         success: function () {
-  //           console.log('insert image success')
-  //         }
-  //       })
-  //     }
-  //   })
-  // },
   // ======
   getEditorValue(e) { //编辑器内容改变时触发，detail = {html, text, delta}
     this.setData({
       ['formData.content']:e.detail.html
     })
   },
-
-  //上传图片
-  // insertImage() { //  使用 catchtouchend 绑定事件则不会使编辑器失去焦点
-  //   const that = this
-  //   wx.chooseImage({
-  //     count: 1,
-  //     success: function (res) {
-  //       that.editorCtx.insertImage({
-  //         src: res.tempFilePaths[0],
-  //         data: {
-  //           id: 'abcd',
-  //           role: 'god'
-  //         },
-  //         width: '80%',
-  //         success: function () {
-  //           console.log('insert image success')
-  //         }
-  //       })
-  //     }
-  //   })
-  // },
 
   getOrderId: function (options) {
     var that = this
@@ -460,22 +379,6 @@ Page({
     else {
       that.editorCtx.getContents({ //读取编辑器内容
         success(res) {
-          console.log (res)
-            // res.replace(/\<img/gi, '<img style="width:100%;height:100%" '),
-          // var resData = res
-          // var arrimg = []
-          // resData.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (capture) {
-          //   arrimg.push(capture);
-
-          // });
-
-          // if (arrimg != null && arrimg.length > 0) {
-          //   for (var i = 0; i < arrimg.length; i++) {
-          //     console.log("第" + i + "个：" + arrimg[i]);
-          //   }
-          // }
-
-
             that.setData({
               articleNotes: res
               })
@@ -495,14 +398,6 @@ Page({
                             title: '提交中',
                           })
                           that.commit()
-                          
-                          // if (that.data.pickedImgs != null && that.data.pickedImgs != undefined && that.data.pickedImgs != '' && that.data.pickedImgs.length != 0){
-                          //   that.updateImg() //传图
-                          //   return
-                          // }else {
-                          //   // $Toast({content:'请为文章插入图片'});
-                          //   that.commit()
-                          // }
                           } else if (res.cancel) {
                           //点击取消
                           }
@@ -515,15 +410,6 @@ Page({
      
 
     }
-    
-    // var step = e.currentTarget.dataset.step;		
-    // if(step=='1'){
-    //   this.setData({
-    //     step: '2'
-    //   });
-    // }else{
-      // this.uploadImg()
-    // }
   },
 
   insertImage: function (e) {
@@ -535,7 +421,6 @@ Page({
       });
     }
     if(this.data.pickedImgs.length >= 9) return
-    // var clickIndex = e.currentTarget.dataset.index
     var pickedImgs = this.data.pickedImgs
     var that = this
     var count = 9 - pickedImgs.length
@@ -552,9 +437,6 @@ Page({
         that.setData({
           compressImgs: res.tempFilePaths
         });
-        // res.tempFilePaths.forEach(element => {
-        //   that.data.compressImgs.push(element)
-        // });
         that.compressImage() //压缩图片
       }
     })
@@ -564,11 +446,9 @@ Page({
   compressImage: function () {
     var that = this
     that.onSwitchChange(true)
-
     var compressImgsIndex = this.data.compressImgsIndex
     var compressImgs = this.data.compressImgs
     var pickedImgs = this.data.pickedImgs
-
     if (compressImgsIndex < compressImgs.length) {
       console.log(compressImgs[compressImgsIndex])
       wx.compressImage({
@@ -577,9 +457,7 @@ Page({
         success(res) {
           console.log('compressImage:' + JSON.stringify(res))
           pickedImgs.unshift(res.tempFilePath)
-
           compressImgsIndex = compressImgsIndex + 1
-
           that.setData({
             pickedImgs: pickedImgs,
             compressImgsIndex: compressImgsIndex
@@ -592,28 +470,10 @@ Page({
         }
       })
     } else { //循环结束执行
-
-      // if(numClick==0){ //只执行一次
-      
-      // that.data.compressImgs.forEach(element => {
-      //   that.editorCtx.insertImage({
-      //     src: element,
-      //     data: {
-      //       id: 'abcd',
-      //       role: 'god'
-      //     },
-      //     success: function () {
-      //       console.log('insert image success')
-      //     }
-      //   })
-      // });
-
       that. updateImg()
-
     // }
     // else{numClick = 0}
     // numClick = 1
-
       // if (this.data.pickedImgs.length>=9){
       //   wx.showToast({
       //     title: '您已选择9张图，若还有需求，请另发订单',
@@ -636,7 +496,6 @@ Page({
      var pickedImgs = that.data.pickedImgs
     // console.log(pickedImgs[uploadedImgIndex])
     var uploadedImgs = that.data.uploadedImgs
-
     var uploadImgParam = {
       attUser: app.globalData.userId,
       attFkId: that.data.orderId,
@@ -657,7 +516,6 @@ Page({
           if (resData.pic && resData.pic.length > 0)
             uploadedImgs.push(resData.pic[0].pic)
 
-
               that.editorCtx.insertImage({
                 src: resData.pic[0].pic,
                 data: {
@@ -668,7 +526,6 @@ Page({
                   console.log('insert image success')
                 }
               })
-  
 
           that.setData({
             uploadedImgs: uploadedImgs
@@ -687,22 +544,7 @@ Page({
             uploadedImgs:[],
             pickedImgs:[]
           })
-
-                // that.data.uploadedImgs.forEach(element => {
-                //   that.editorCtx.insertImage({
-                //     src: element,
-                //     data: {
-                //       id: 'abcd',
-                //       role: 'god'
-                //     },
-                //     success: function () {
-                //       console.log('insert image success')
-                      that.onSwitchChange(false)
-                //     }
-                //   })
-                // });
-
-          // that.commit()
+            that.onSwitchChange(false)
         }
         }
       })
@@ -744,12 +586,7 @@ Page({
       articleNotes:{
         html:''
       },//富文本内容
-      current_scroll:'',
       current_scroll2:'',
-      current_scroll3:'tab3',
-      current_scroll4:'tab4',
-      current_scroll5:'tab5',
-      current_scroll6:'tab6',
       currentItem:'',
       activeTag1:'2',
       activeTagfont:{
@@ -788,13 +625,10 @@ Page({
       articleClassId: "1811201459000283",   //写死
       searchKey:that.data.searchName,   //用户发表图文时勾选的分类,英文逗号分隔
     }
-    app.httpsDataPost('/shop/createArticle', param,
+    app.httpsDataPost('/school/createArticle', param,
       function (ret) {
         //成功
         if (ret.status) {
-          // that.setData({
-          //   step: '3'
-          // });
           wx.hideLoading();
           wx.showModal({
             title: '提示',

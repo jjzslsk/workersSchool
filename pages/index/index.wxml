@@ -22,14 +22,10 @@
         </block>
       </swiper>
 
-    <!-- <view class="ws-banner-img">
-      <image src="/images/course/ws_banner.jpg" />
-    </view> -->
-
     <view class="aui-grid">
       <view class="aui-row">
-        <view class="aui-col-5" wx:for="{{dataList}}" wx:key="id" wx:for-item="item" bindtap='itemClick'>
-          <image class="class-icon" src='{{item.src}}' bindtap="itemClick"></image>
+        <view class="aui-col-5" wx:for="{{dataList}}" wx:key="typeId" wx:for-item="item" data-typeId='{{item.typeId}}' bindtap='itemClick'>
+          <image class="class-icon" src='{{item.src}}'></image>
           <view class="aui-grid-label">{{item.title}}</view>
         </view>
       </view>
@@ -60,14 +56,14 @@
     <view class="designer-area">
           <view class="designer-itemr">
             <view class="designer-itemr-title">设计师</view>
-            <view class="designer-itemr-right" bindtap="stylistCilck">更多</view>
+            <view class="designer-itemr-right" bindtap="stylistCilck" data-typeId="1912121654018056">更多</view>
           </view>
 
       <view class="aui-grid">
         <view class="aui-row">
-          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item" bindtap='openWorkerDetail'>
+          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item" data-id="{{item}}" bindtap='openWorkerDetail'>
             <view class="designer-ave">
-              <image src='{{item.aveUrl}}' />
+              <image src='{{item.AVATAR}}' />
             </view>
           </view>
         </view>
@@ -113,11 +109,7 @@
           </view>
         </view>
       </view>
-
-
     </view>
-
-    
   </scroll-view>
 
 </view>

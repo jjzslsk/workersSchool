@@ -17,9 +17,7 @@ page {
 }
 
 .container {
-  /* position: absolute; 
-  top: 0; 
-  left: 0;  */
+
   width: 100%;
 }
 
@@ -53,10 +51,6 @@ page {
   padding: 0 10px;
   height: 50px;
   width: 100%;
-  /* position: fixed;
-  left: 0;
-  right: 100%;
-  bottom: 0; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,17 +68,12 @@ page {
 }
 
 .commit-btn{
-  /* position: relative;z-index: 99;background: #259B24;color: #FFFFFF;font-size: 0.8em;text-align: center;height: 30px;line-height: 30px;width: 110px;margin: 20px auto;border-radius: 5px; */
-/* position: fixed;
-bottom: 3rem;
-right: 1rem; */
 z-index: 99;
 color: #fff;
 background: #41CC8E;
 font-size: 0.8em;
 display: inline-block;
 border-radius:15px;
-/* border: #41CC8E solid 1px; */
 padding: 6px 60px;
 }
 
@@ -112,4 +101,3 @@ padding: 6px 60px;
 .badge-box {padding: .5rem;position: absolute;top: -15px;right: -15px;z-index: 3;}
 .badge-but {color: #fff;border-radius:10px;line-height: .8rem;text-align: center;width: .8rem;height: .8rem;background-color: red;}
 
-/* i-tab {background: #999999;} */

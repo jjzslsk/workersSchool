@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/stylist/stylist",
     "pages/workerDetail/workerDetail",
-    "pages/workerDetail0/workerDetail0",
     "pages/classify/classify",
     "pages/me/me",
     "editor/editor",
@@ -14,7 +13,6 @@
     "pages/mall/mall",
     "pages/articleList/articleList",
 
-    "pages/workerType/workerType",
     "pages/wxSubscription/wxSubscription",
     "pages/myWorker/myWorker",
     "pages/myShop/myShop",

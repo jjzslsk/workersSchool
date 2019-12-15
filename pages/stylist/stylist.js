@@ -4,6 +4,8 @@ Page({
     startPage: 0,
     recordSize: 90,
     userList:[],
+    pickedClass: 'ALL',
+    pickedClassName: '全部',
   },
 
   diaryDetail: function (e){
@@ -33,8 +35,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log (JSON.stringify(options.typeId))
     var that = this
-    var Param = 'typeId=1912121654018056' + '&pageIndex=' + that.data.startPage + '&pageSize=' + that.data.recordSize;
+    var Param = 'typeId=' + options.typeId + '&pageIndex=' + that.data.startPage + '&pageSize=' + that.data.recordSize;
     app.httpsDataGet('/school/getWorkerByType', Param,
       function (res) {
         if (res.status) {

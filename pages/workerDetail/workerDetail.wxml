@@ -53,19 +53,19 @@
 
     </image>
 
-    <view class='info-title'><view class='info-title-content'>设计风格</view></view>
+    <view class='info-title'><view class='info-title-content'>风格/技能</view></view>
     <view class='info-content'>
       <view class='work-type' wx:for="{{detail.workerType}}" wx:key="type.CLIENT_CLASS_ID" wx:for-item="type">{{type.class_name}}</view>
     </view>
     <view class='info-title'><view class='info-title-content'>个性签名</view></view>
     <view class='info-content'>{{detail.WORK_ZYM ? detail.WORK_ZYM:'暂无内容'}}</view>
 
-    <view class='info-title'><view class='info-title-content'>设计师介绍</view></view>
+    <view class='info-title'><view class='info-title-content'>介绍</view></view>
     <view class='info-content'>{{detail.WORK_JNJS ? detail.WORK_JNJS:'暂无内容'}}</view>
 
     <view wx:if="{{detail.comments.length>0}}" bindtap="moreCmt">
       <view class='info-title'>
-        <view class='info-title-content'>设计师评价</view>
+        <view class='info-title-content'>评价</view>
         <view class="more">更多 ></view>
       </view>
       <view class='info-content'>
@@ -94,6 +94,49 @@
       </view>
       <view class='no-pic' wx:else>暂无图片</view>
     </view>
+
+    <!-- 效果图 -->
+          <view class='info-title' wx:if="{{recommendList.length}}">
+        <view class='info-title-content'>设计方案</view>
+        <view class="more" bindtap="articleList" data-userId=''>更多 ></view>
+      </view>
+
+      <view class='info-content'>
+            <view class="recommend-list">
+      <view>
+        <view class="recommend-item" 
+      wx:for="{{recommendList}}"
+      wx:key="articleId"
+      wx:for-item="item"
+      data-item="{{item}}"
+      bindtap="listClick">
+        <view class="recommend-item-img">
+          <image wx:if="{{item.itemImg!=undefined && item.itemImg!=null && item.itemImg!=''}}" src='{{item.itemImg}}'/>
+          <image wx:else src='/images/placeholder.png' />
+        </view>
+
+        <view>
+        <view class="recommend-item-info">{{item.articleTitle}}</view>
+        <view class="ws-card-footer horizontal">
+          <view class="company horizontal">
+            <image src='{{item.picListUrl}}'/>
+            <view class="item-name">{{item.createName}}</view>
+          </view>
+          <view class="ws-ft-btns horizontal">
+            <view class="item-btn">
+              <i class="aui-iconfont aui-icon-star"></i>收藏</view>
+            <view class="item-btn">
+              <i class="aui-iconfont aui-icon-share"></i>分享</view>
+          </view>
+        </view>
+        </view>
+
+      </view>
+      </view>
+    </view>
+      </view>
+
+
 
     <view wx:if="{{bbsList.length>0}}">
       <view class='info-title padded-b-0'><view class='info-title-content'>设计师日志</view></view>

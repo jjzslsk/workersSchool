@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "效果图列表",
+  "navigationBarTitleText": "设计方案",
   "usingComponents": {
     "i-tabs": "../../dist/tabs/index",
     "i-tab": "../../dist/tab/index"

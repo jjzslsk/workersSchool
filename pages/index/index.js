@@ -6,6 +6,10 @@ Page({
   data: {
     startPage:1,
     recordSize:90,
+    pickedClass: 'ALL',
+    pickedClassName: '全部',
+
+    //参照找工人推广
     bannerList: [
       {W_ACT_ID:1912020846005770,
         TITLE:"空调深度保养",
@@ -41,16 +45,16 @@ Page({
     listData:[],
     current: '1910251543017244',
     dataList:[
-      { id:'1',title:'装修公司',src:'/images/course/zxgs.png',isClick:false},
-      { id: '2', title: '监理工匠', src:'/images/course/jlgj.png'},
-      { id: '3', title: '全屋定制', src:'/images/course/qwdz.png'},
-      { id: '4', title: '装修信用', src:'/images/course/zxxy.png'},
-      { id: '5', title: '材料知识', src:'/images/course/clzs.png'},
-      { id:'6',title:'装修攻略',src:'/images/course/zxgl.png'},
-      { id:'7',title:'业主社区',src:'/images/course/yzsq.png'},
-      { id:'8',title:'小区活动',src:'/images/course/xqhd.png'},
-      { id:'9',title:'新闻热点',src:'/images/course/xwrd.png'},
-      { id:'10',title:'更多',src:'/images/course/gd.png'},
+      { typeId:'1907171200012066',title:'装修公司',src:'/images/course/zxgs.png',isClick:false},
+      { typeId: '1905051511005406', title: '监理工匠', src:'/images/course/jlgj.png'},
+      { typeId: null, title: '全屋定制', src:'/images/course/qwdz.png'},
+      { typeId: null, title: '装修信用', src:'/images/course/zxxy.png'},
+      { typeId: null, title: '材料知识', src:'/images/course/clzs.png'},
+      { typeId: null,title:'装修攻略',src:'/images/course/zxgl.png'},
+      { typeId: null,title:'业主社区',src:'/images/course/yzsq.png'},
+      { typeId: null,title:'小区活动',src:'/images/course/xqhd.png'},
+      { typeId: null,title:'新闻热点',src:'/images/course/xwrd.png'},
+      { typeId: null,title:'更多',src:'/images/course/gd.png'},
     ],
 
     activityList:[//活动
@@ -61,37 +65,15 @@ Page({
     ],
 
     designerList:[//设计师
-      {id:'designerave01',aveUrl:'/images/course/designerave01.png'},
-      // {id:'designerave02',aveUrl:'/images/course/designerave02.png'},
-      {id:'designerave03',aveUrl:'/images/course/designerave03.png'},
-      { id: 'designerave04', aveUrl: '/images/course/designerave04.png' },
-      {id:'designerave05',aveUrl:'/images/course/designerave05.png'},
-      {id:'designerave06',aveUrl:'/images/course/designerave06.png'},
+      // {id:'designerave01',aveUrl:'/images/course/designerave01.png'},
+      // // {id:'designerave02',aveUrl:'/images/course/designerave02.png'},
+      // {id:'designerave03',aveUrl:'/images/course/designerave03.png'},
+      // { id: 'designerave04', aveUrl: '/images/course/designerave04.png' },
+      // {id:'designerave05',aveUrl:'/images/course/designerave05.png'},
+      // {id:'designerave06',aveUrl:'/images/course/designerave06.png'},
     ],
 
     recommendList:[],
-
-    recommendListData01:[[
-			{id:'recommend01',imgUrl:'/images/course/ws_activity01.jpg',info:'现代新中式1，简约大气，经典风！',logo:'/images/course/ws_shop_logo01.jpg',companyName:'广义装饰',isCollection:false},
-			{id:'recommend02',imgUrl:'/images/course/ws_activity03.jpg',info:'北欧风，为您增添活跃气氛',logo:'/images/course/ws_shop_logo02.jpg',companyName:'一文装饰',isCollection:false},
-			{id:'recommend03',imgUrl:'/images/course/ws_activity02.jpg',info:'中式家具，古典韵味，中式独特风格！',logo:'/images/course/ws_shop_logo03.jpg',companyName:'华文装饰',isCollection:false}
-		],[
-			{id:'recommend01',imgUrl:'/images/course/ws_activity01.jpg',info:'现代新中式2，简约大气，经典风！',logo:'/images/course/ws_shop_logo03.jpg',companyName:'二文装饰',isCollection:false},
-			{id:'recommend02',imgUrl:'/images/course/ws_activity03.jpg',info:'北欧风，为您增添活跃气氛',logo:'/images/course/ws_shop_logo02.jpg',companyName:'华文装饰',isCollection:false},
-			{id:'recommend03',imgUrl:'/images/course/ws_activity02.jpg',info:'中式家具，古典韵味，中式独特风格！',logo:'/images/course/ws_shop_logo01.jpg',companyName:'一文装饰',isCollection:false}
-		],[
-			{id:'recommend01',imgUrl:'/images/course/ws_activity02.jpg',info:'现代新中式3，简约大气，经典风！',logo:'/images/course/ws_shop_logo02.jpg',companyName:'华文装饰',isCollection:false},
-			{id:'recommend02',imgUrl:'/images/course/ws_activity03.jpg',info:'北欧风，为您增添活跃气氛',logo:'/images/course/ws_shop_logo03.jpg',companyName:'中鼎装饰',isCollection:false},
-			{id:'recommend03',imgUrl:'/images/course/ws_activity01.jpg',info:'中式家具，古典韵味，中式独特风格！',logo:'/images/course/ws_shop_logo01.jpg',companyName:'一文装饰',isCollection:false}
-		],[
-			{id:'recommend01',imgUrl:'/images/course/ws_activity03.jpg',info:'现代新中式，简约大气，经典风！',logo:'/images/course/ws_shop_logo01.jpg',companyName:'光明装饰',isCollection:false},
-			{id:'recommend02',imgUrl:'/images/course/ws_activity01.jpg',info:'北欧风，为您增添活跃气氛',logo:'/images/course/ws_shop_logo03.jpg',companyName:'帝豪装饰',isCollection:false},
-			{id:'recommend03',imgUrl:'/images/course/ws_activity02.jpg',info:'中式家具，古典韵味，中式独特风格！',logo:'/images/course/ws_shop_logo02.jpg',companyName:'一文装饰',isCollection:false}
-		],[
-			{id:'recommend01',imgUrl:'/images/course/ws_activity02.jpg',info:'现代新中式，简约大气，经典风！',logo:'/images/course/ws_shop_logo01.jpg',companyName:'爱龙装饰',isCollection:false},
-			{id:'recommend02',imgUrl:'/images/course/ws_activity03.jpg',info:'北欧风，为您增添活跃气氛',logo:'/images/course/ws_shop_logo02.jpg',companyName:'华文装饰',isCollection:false},
-			{id:'recommend03',imgUrl:'/images/course/ws_activity01.jpg',info:'中式家具，古典韵味，中式独特风格！',logo:'/images/course/ws_shop_logo03.jpg',companyName:'一文装饰',isCollection:false}
-		]],
 
     motto: 'Hello World',
     userInfo: {},
@@ -103,7 +85,6 @@ Page({
     var that = this
     this.setData({
       current: detail.key,
-      // recommendList: this.data.recommendListData01[detail.key]
     });
     if(!detail.key) return
     var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&classParentId=' + detail.key + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
@@ -135,16 +116,17 @@ Page({
   },
 
   openWorkerDetail: function (e) {
-    var id = '1';
+    var id = e.currentTarget.dataset.id.CLIENT_ID;
     wx.navigateTo({
-      url: '/pages/workerDetail/workerDetail?id=' + id
+      url: '/pages/workerDetail/workerDetail?id=' + id + '&classId=' + this.data.pickedClass + '&className=' + this.data.pickedClassName
     })
   },
 
-  itemClick: function(){
-    // wx.navigateTo({
-    //   url: '../classify/classify'
-    // })
+  itemClick: function(e){
+    if(e.currentTarget.dataset.typeid == null) return
+    wx.navigateTo({
+      url: '../stylist/stylist?typeId=' + e.currentTarget.dataset.typeid
+    })
   },
 
   openActivity: function (e) {
@@ -154,9 +136,6 @@ Page({
   },
 
   listClick: function (e){
-    console.log (JSON.stringify(e))
-
-    // var articleTitleData = articleTitle.toString()
     wx.navigateTo({
       url: '../detail/detail?articleId=' 
         + e.currentTarget.dataset.item.articleId
@@ -171,22 +150,15 @@ Page({
     })
   },
 
-  stylistCilck: function(){
+  stylistCilck: function(e){
+    console.log (JSON.stringify(e.currentTarget.dataset))
     wx.navigateTo({
-      url: '../stylist/stylist'
-    })
-  },
-
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+      url: '../stylist/stylist?typeId=' + e.currentTarget.dataset.typeid
     })
   },
 
 
-
-      //获取商品收藏列表
+      //获取列表
       getGoodsCollectList: function() {
         var that = this;
         app.httpsGetDatByPlatform('params_class_xg_tree', 'list','',
@@ -280,14 +252,38 @@ Page({
     return data
   },
 
+  designerList(){
+    var that = this
+    var Param = 'typeId=1912121654018056' + '&pageIndex=0' + '&pageSize=5';
+    app.httpsDataGet('/school/getWorkerByType', Param,
+      function (res) {
+        if (res.status) {
+          if (res.data.length > 0) {
+            that.setData({
+              designerList: res.data,
+            });
+  
+          } else {
+            that.setData({
+              designerList: [],
+            });
+          }
+        }
+      },
+      function (res) {
+        //失败
+        wx.hideLoading()
+      }
+    )
+  },
+
    /**
    * 生命周期函数--监听页面显示
   */
  onShow:function(){
   var that = this
   that.getGoodsCollectList() //获取大类
-
-  
+  that.designerList() //获取设计师
 
   //获取所有List
   wx.showLoading({
@@ -313,6 +309,7 @@ Page({
       wx.hideLoading()
     }
   )
+
 },
 
 })

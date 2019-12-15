@@ -39,7 +39,7 @@ Page({
     })
   },
 
-   //获取商品收藏列表
+   //获取列表
    getGoodsCollectList: function() {
     var that = this;
     var param

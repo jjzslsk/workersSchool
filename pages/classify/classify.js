@@ -243,8 +243,8 @@ Page({
       title: '加载中',
     })
     if(detail) {
-      var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&searchKey=' + detail + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
-      app.httpsDataGet('/shop/getArticleListForSchool', Param,
+      var Param = 'type=Article_CLASS_1' + '&searchKey=' + detail + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
+      app.httpsDataGet('/school/getArticleListForSchool', Param,
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {
@@ -270,8 +270,8 @@ Page({
     )
     }
     else if (!detail){
-      var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
-      app.httpsDataGet('/shop/getArticleListForSchool', Param,
+      var Param = 'type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
+      app.httpsDataGet('/school/getArticleListForSchool', Param,
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {
