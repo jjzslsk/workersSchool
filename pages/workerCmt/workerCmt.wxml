@@ -1,0 +1,23 @@
+<!--pages/workerCmt/workerCmt.wxml-->
+<view class='body'>
+  <scroll-view scroll-y class='scroll-area'>
+    <view class='comment-list'>
+      <view class='list-item' wx:for="{{detail.comments}}" wx:for-item="cmt" wx:key="id">
+        <view class='list-user'>
+          <image class='list-user-avatar' mode="widthFix" src='/images/head.png'></image>
+          <view class='list-user-text'>
+            <view class='username'>{{cmt.clientName}}</view>
+            <view class='commentlist-score'>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>0}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>1}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>2}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>3}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>4}}"></image>
+            </view>
+          </view>
+        </view>
+        <view class="{{cmt.content? 'list-content':'list-no-content'}}">{{cmt.content? cmt.content:'暂无评价内容'}}</view>
+      </view>     
+    </view>
+  </scroll-view>
+</view>

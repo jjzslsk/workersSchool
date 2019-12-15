@@ -33,7 +33,7 @@
           </view>
         </view>
         <view class="aui-flex-item-5">
-          <view class="info-item">设计师等级 1级</view>
+          <view class="info-item">等级 1级</view>
         </view>
         <view class="aui-flex-item-3">
           <view class="info-item">工龄 {{detail.lengthOfService}}年</view>
@@ -139,7 +139,7 @@
 
 
     <view wx:if="{{bbsList.length>0}}">
-      <view class='info-title padded-b-0'><view class='info-title-content'>设计师日志</view></view>
+      <view class='info-title padded-b-0'><view class='info-title-content'>日志</view></view>
       <view class='info-content'>
         <view class='aui-flex-col aui-flex-middle log-list' wx:for="{{bbsList}}" wx:for-item="li" wx:key="SUBJECT_ID"  wx:if="{{index<2}}" data-id="{{li.SUBJECT_ID}}" bindtap="openWorkerLogDetail">    
           <!-- <view class="aui-flex-item-7 log-title">项目介绍：横溢工地</view>
@@ -201,7 +201,7 @@
     </view>
 
     <!-- <view class='info-title'>
-      <view class='info-title-content'>设计师评价
+      <view class='info-title-content'>评价
         <text class='user-text'>（{{detail.comments.length}}条）</text>
         <view class='comment-score'  wx:if="{{detail.WORKER_SCORE>0}}">
           <image src='/images/worker/star_red.png' wx:if="{{detail.WORKER_SCORE>=1}}"></image>

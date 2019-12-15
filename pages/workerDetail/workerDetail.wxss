@@ -7,7 +7,7 @@
 .userscore{margin-bottom: 5px;font-size: 1em;width: 100%;float: left; display: flex;justify-content: center;}
 /* .score{margin-left: 38%;} */
 .userscore image{float: left;width:13px;height: 13px;}
-.scoreinfo{float: left;margin-left: 10px;font-size: 0.8em !important;line-height: 15px;}
+.scoreinfo{float: left;margin-left: 10px;font-size: 0.8em !important;line-height: 15px;color: #fff;}
 
 .user-text{color: #999999;padding:0 5px}
 .margin-b-10{margin-bottom: 10px;}

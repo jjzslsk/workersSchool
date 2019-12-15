@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "设计师详情",
+  "navigationBarTitleText": "装小匠",
   "usingComponents": {
     "i-toast": "/dist/toast/index"
   }
