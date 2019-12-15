@@ -1,6 +1,6 @@
 
   <view class="body-box" bindscroll="scroll">
-    <view class="top-box" hover-class="none" hover-stop-propagation="false">
+    <!-- <view class="top-box" hover-class="none" hover-stop-propagation="false">
       <scroll-view class="class-scroll" scroll-x wx:for="{{advanced}}" wx:for-item="item" wx:for-index="itemIndex" wx:key="SYS_PARAMS_CLASS_ID">
         <view class="tab-wrap">
               <view class="tab-item-text {{item.checked ? 'tab-item-text-color':''}}" bindtap="parentItem" data-parentItem='{{item}}'>
@@ -24,7 +24,7 @@
               </view>
         </view>
       </scroll-view>
-    </view>
+    </view> -->
     <!-- <view bindtap='unfoldClick' class="unfold" wx:if="{{unfold}}">
         <view class="unfold-text">
           展开

@@ -157,7 +157,6 @@ Page({
 
   ListBtnclick(e){
     var that = this
-    // console.log('ee...'+JSON.stringify(e))
     var searchObj = that.data.searchObj
     if(searchObj.length == 0){
       searchObj.push(e.currentTarget.dataset.items)
@@ -165,7 +164,7 @@ Page({
         searchObj:searchObj
       })
     }else if(that.data.searchObj.length > 0){
-      var condition = true
+      var condition = true //是否允许追加
       var conditionIndx
 
       that.data.searchObj.forEach((item,index)=>{

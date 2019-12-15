@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "设计师详情",
+  "usingComponents": {
+    "i-toast": "/dist/toast/index"
+  }
+}

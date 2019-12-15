@@ -1,0 +1,226 @@
+<view class='body'>
+  <scroll-view scroll-y class='scroll-area'>
+    <image src='/images/detail/topBak.png' class='userinfo'>
+    <view class="userinfo-content">
+
+      <view class="aui-flex-col">
+        <view class="aui-flex-item-12">
+          <view class='focused-btn' bindtap='focusWorker' wx:if="{{isConcern=='1' || isConcern==1}}">取消关注</view>
+          <view class='focus-btn' bindtap='focusWorker' wx:else>关注</view>
+          <image bindtap='userImg' class='avatar' show-menu-by-longpress='true'  src='{{detail.AVATAR}}' wx:if="{{detail.AVATAR}}"/>
+          <image class='avatar' src='/images/head.png' wx:else/>
+          <view class='username' wx:if="{{detail.CLIENT_ACCOUNT}}">{{detail.shortName}}</view>
+          <view class='username' wx:else><text decode="{{true}}">&nbsp;</text></view>
+          <view class='userscore'>
+            <view class='score'>
+              <image src='/images/worker/star_red.png' wx:if="{{detail.STAR_LEVEL>0}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{detail.STAR_LEVEL>1}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{detail.STAR_LEVEL>2}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{detail.STAR_LEVEL>3}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{detail.STAR_LEVEL>4}}"></image>
+              <view class='scoreinfo' wx:if="{{detail.STAR_LEVEL>0}}">{{detail.STAR_LEVEL}}.0<text class='hpl' wx:if="{{detail.WORKER_GOOD_REPUTATION>0}}">好评率：{{detail.WORKER_GOOD_REPUTATION*100}}%</text></view>
+            </view>
+          </view>         
+        </view>
+      </view>
+      <view class="aui-flex-col margin-t-10">
+        <view class="aui-flex-item-4">
+          <view class="aui-flex-item-6">
+            <view class="info-item">{{detail.SEX=='1' ? '男':'女'}}</view>
+          </view>
+          <view class="aui-flex-item-6">
+            <view class="info-item">{{detail.age}}岁</view>
+          </view>
+        </view>
+        <view class="aui-flex-item-5">
+          <view class="info-item">设计师等级 1级</view>
+        </view>
+        <view class="aui-flex-item-3">
+          <view class="info-item">工龄 {{detail.lengthOfService}}年</view>
+        </view>
+
+        <view class="aui-flex-item-4 margin-t-10">
+          <view class="info-item">服务次数 {{detail.serviceNumber}}次</view>
+        </view>
+        <view class="aui-flex-item-5 margin-t-10">
+          <view class="info-item">活跃天数 {{detail.loginday}}天</view>
+        </view>
+        <view class="aui-flex-item-3 margin-t-10">
+          <view class="info-item">粉丝 {{detail.beConcern}}人</view>
+        </view>
+      </view>
+    </view>
+
+    </image>
+
+    <view class='info-title'><view class='info-title-content'>设计风格</view></view>
+    <view class='info-content'>
+      <view class='work-type' wx:for="{{detail.workerType}}" wx:key="type.CLIENT_CLASS_ID" wx:for-item="type">{{type.class_name}}</view>
+    </view>
+    <view class='info-title'><view class='info-title-content'>个性签名</view></view>
+    <view class='info-content'>{{detail.WORK_ZYM ? detail.WORK_ZYM:'暂无内容'}}</view>
+
+    <view class='info-title'><view class='info-title-content'>设计师介绍</view></view>
+    <view class='info-content'>{{detail.WORK_JNJS ? detail.WORK_JNJS:'暂无内容'}}</view>
+
+    <view wx:if="{{detail.comments.length>0}}" bindtap="moreCmt">
+      <view class='info-title'>
+        <view class='info-title-content'>设计师评价</view>
+        <view class="more">更多 ></view>
+      </view>
+      <view class='info-content'>
+        <view class="cmt-item" wx:for="{{detail.mainComments}}" wx:for-item="cmt" wx:key="id" wx:if="{{index<2}}">
+          {{cmt.clientName}}：{{cmt.content}}
+        </view>
+      </view>
+    </view>
+
+    <view class='info-title' wx:if="{{detail.qualification && detail.qualification.length>0}}"><view class='info-title-content'>行业资质</view></view>
+    <view class='info-content' wx:if="{{detail.qualification && detail.qualification.length>0}}">
+      <view class='aui-flex-col aui-flex-middle list' wx:if="{{detail.qualification && detail.qualification.length>0}}">    
+        <view class="aui-flex-item-4 list-img" wx:for="{{detail.qualification}}" wx:for-item="pic" wx:key="ROWID">
+          <image class='lm' src='{{pic.url}}' data-type="qualification" data-i="{{index}}" bindtap='previewImage'></image>
+        </view>
+      </view>
+      <view class='no-pic' wx:else>暂无图片</view>
+    </view>
+
+    <view class='info-title' wx:if="{{detail.workPics && detail.workPics.length>0}}"><view class='info-title-content'>工程案例</view></view>
+    <view class='info-content' wx:if="{{detail.workPics && detail.workPics.length>0}}">
+      <view class='aui-flex-col aui-flex-middle list' wx:if="{{detail.workPics && detail.workPics.length>0}}">    
+        <view class="aui-flex-item-4 list-img" wx:for="{{detail.workPics}}" wx:for-item="pic" wx:key="ROWID">
+          <image class='lm' src='{{pic.url}}' data-type="workPics" data-i="{{index}}" bindtap='previewImage'></image>
+        </view>
+      </view>
+      <view class='no-pic' wx:else>暂无图片</view>
+    </view>
+
+    <view wx:if="{{bbsList.length>0}}">
+      <view class='info-title padded-b-0'><view class='info-title-content'>设计师日志</view></view>
+      <view class='info-content'>
+        <view class='aui-flex-col aui-flex-middle log-list' wx:for="{{bbsList}}" wx:for-item="li" wx:key="SUBJECT_ID"  wx:if="{{index<2}}" data-id="{{li.SUBJECT_ID}}" bindtap="openWorkerLogDetail">    
+          <!-- <view class="aui-flex-item-7 log-title">项目介绍：横溢工地</view>
+          <view class="aui-flex-item-5 log-date">2019-08-26</view> -->
+          <view class="aui-flex-item-12" wx:if="{{li.IMG_LIST.length>0}}">
+            <view class="aui-flex-item-4" wx:if="{{li.videoPath}}">
+              <image class="img-video" src="/images/worker/play.png"></image>
+              <image class="log-img" mode='aspectFill' src='{{li.IMG_LIST[0].URL}}'></image>
+            </view>
+            <view class="aui-flex-item-4" wx:else>
+              <view class="img-count" wx:if="{{li.IMG_LIST.length>1}}">共{{li.IMG_LIST.length}}张</view>
+              <image class="log-img" mode='aspectFill' src='{{li.IMG_LIST[0].URL}}'></image>
+            </view>
+            <view class="aui-flex-item-8">
+              <view class="log-desc-title" wx:if="{{li.SUBJECT_TITLE}}">{{li.SUBJECT_TITLE}}</view>
+              <view class="log-desc ellipsis-2" wx:if="{{li.SUBJECT_MEMO}}">{{li.SUBJECT_MEMO}}</view>
+              <view class="log-footer">
+                <view class="aui-flex-item-1">
+                  <image class="log-footer-icon" src="/images/worker/log-like-act.png" wx:if="{{li.ZAN_FLAG=='1'}}"></image>
+                  <image class="log-footer-icon" src="/images/worker/log-like.png" wx:else></image>
+                </view>
+                <view class="aui-flex-item-3 padded-l-5">{{li.DZ_NUM ? li.DZ_NUM:'0'}}</view>
+                <view class="aui-flex-item-1">
+                  <image class="log-footer-icon" src="/images/worker/log-cmt.png"></image>
+                </view>
+                <view class="aui-flex-item-3 padded-l-5">{{li.HF_NUM ? li.HF_NUM:'0'}}</view>
+                <view class="aui-flex-item-1">
+                  <image class="log-footer-icon" src="/images/worker/log-repost.png"></image>
+                </view>
+                <view class="aui-flex-item-3 padded-l-5">{{li.NO_NUM ? li.NO_NUM:'0'}}</view>
+              </view>
+            </view>  
+          </view>
+
+          <view class="aui-flex-item-12" wx:else>
+            <view class="log-desc-title" wx:if="{{li.SUBJECT_TITLE}}">{{li.SUBJECT_TITLE}}</view>
+            <view class="log-desc ellipsis-2" wx:if="{{li.SUBJECT_MEMO}}">{{li.SUBJECT_MEMO}}</view>
+            <view class="log-footer">
+              <view class="aui-flex-item-1">
+                <image class="log-footer-icon" src="/images/worker/log-like.png"></image>
+              </view>
+              <view class="aui-flex-item-3 padded-l-5">{{li.DZ_NUM ? li.DZ_NUM:'0'}}</view>
+              <view class="aui-flex-item-1">
+                <image class="log-footer-icon" src="/images/worker/log-cmt.png"></image>
+              </view>
+              <view class="aui-flex-item-3 padded-l-5">{{li.HF_NUM ? li.HF_NUM:'0'}}</view>
+              <view class="aui-flex-item-1">
+                <image class="log-footer-icon" src="/images/worker/log-repost.png"></image>
+              </view>
+              <view class="aui-flex-item-3 padded-l-5">{{li.NO_NUM ? li.NO_NUM:'0'}}</view>
+            </view>
+          </view>
+
+        </view>     
+        <view class="padded-10">
+          <view class="log-more" bindtap="openWorkerLog">查看更多</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class='info-title'>
+      <view class='info-title-content'>设计师评价
+        <text class='user-text'>（{{detail.comments.length}}条）</text>
+        <view class='comment-score'  wx:if="{{detail.WORKER_SCORE>0}}">
+          <image src='/images/worker/star_red.png' wx:if="{{detail.WORKER_SCORE>=1}}"></image>
+          <image src='/images/worker/star_red.png' wx:if="{{detail.WORKER_SCORE>=2}}"></image>
+          <image src='/images/worker/star_red.png' wx:if="{{detail.WORKER_SCORE>=3}}"></image>
+          <image src='/images/worker/star_red.png' wx:if="{{detail.WORKER_SCORE>=4}}"></image>
+          <image src='/images/worker/star_red.png' wx:if="{{detail.WORKER_SCORE>=5}}"></image>
+          <view class='scoreinfo'>{{detail.WORKER_SCORE}}</view>
+        </view>
+      </view>
+      <view class='comment-desc' wx:if="{{detail.comments.length>0}}">
+          <view class='comment-desc-item'>
+            <view class='desc-content'>
+              <view>技能熟练</view>
+              <view class='desc-count'>（20）</view>
+            </view>
+          </view>
+          <view class='comment-desc-item'>
+            <view class='desc-content'>
+              <view>诚实信用</view>
+              <view class='desc-count'>（30）</view>
+            </view>
+          </view>
+          <view class='comment-desc-item'>
+            <view class='desc-content'>
+              <view>服务优质</view>
+              <view class='desc-count'>（15）</view>
+            </view>
+          </view>
+          <view class='comment-desc-item'>
+            <view class='desc-content'>
+              <view>交互及时</view>
+              <view class='desc-count'>（40）</view>
+            </view>
+          </view>    
+      </view>
+      
+    </view> -->
+    <!-- <view class='comment-list'>
+      <view class='list-item' wx:for="{{detail.comments}}" wx:for-item="cmt" wx:key="id">
+        <view class='list-user'>
+          <image class='list-user-avatar' mode="widthFix" src='/images/head.png'></image>
+          <view class='list-user-text'>
+            <view class='username'>用户名</view>
+            <view class='commentlist-score'>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>0}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>1}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>2}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>3}}"></image>
+              <image src='/images/worker/star_red.png' wx:if="{{cmt.level>4}}"></image>
+            </view>
+          </view>
+        </view>
+        <view class='list-content'>{{cmt.content? cmt.content:'暂无评价内容'}}</view>
+      </view>     
+    </view> -->
+  </scroll-view>
+  <!-- <view class='footer' wx:if="{{classId}}">
+    <view class='commit-btn' bindtap='chatTap'>聊一聊</view>
+    <view class='commit-btn2' bindtap="postRequire">立即预约</view>
+  </view>
+  <view class='footer' wx:else>
+    <view class='commit-btn3' bindtap='chatTap'>聊一聊</view>
+  </view> -->
+</view>

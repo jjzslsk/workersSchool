@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    startPage: 1,
+    recordSize: 90,
     detailData:{},
     article:null,
     cmtPlaceholder: '请输入评论内容',
@@ -35,7 +37,7 @@ Page({
     var p = 'SUBJECT_ID=' + that.data.lid + '&CLIENT_ID=' + app.globalData.userId + '&BROWSE_NUMBER=1'
     app.httpsPlatformClass('upBbsBrowseNum', p,
       function (res) {
-        console.log('1211' + JSON.stringify(res) )
+
       },
       function (returnFrom, res) {
         //失败
@@ -52,7 +54,10 @@ Page({
         for (var i = 0; i < res.msg.length; i++) {
           var name = res.msg[i].CLIENT_NAME.substr(0, 1) + '**'
           res.msg[i].showName = name
+          res.msg[i].CRETAE_DATE = res.msg[i].CRETAE_DATE.substring(0, 16)
+          res.msg[i].CRETAE_DATE = res.msg[i].CRETAE_DATE.replace(/-/g, "/");
         }
+
         that.setData({
           cmtList: res.msg
         });
@@ -126,7 +131,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log (JSON.stringify(options))
     var that = this
     that.setViewCount(options)
     that.setData({
@@ -164,7 +168,7 @@ Page({
 
 
     
-    var aParam1 = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1&articleId=' + that.data.lid;
+    var aParam1 = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1&articleId=' + that.data.lid + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;;
     wx.showLoading({
       title: '加载中',
     })
@@ -172,15 +176,17 @@ Page({
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {
-            
+            let detailData = res.data[0]
+            detailData.createDate = res.data[0].createDate.substring(0, 16)
+            let createDate = detailData.createDate
+            detailData.createDate = createDate.replace(/-/g, "/");
             that.setData({
-              detailData: res.data[0],
+              detailData
             });
             that.setData({
               ['detailData.articleNotes']: res.data[0].articleNotes.replace(/\<img/gi, '<img style="width:100%;height:100%" '),
-              // article:res.data.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
             });
-            console.log ('11'+that.data.detailData.articleNotes)
+            console.log(JSON.stringify(that.data.detailData))
           }
         }
       },

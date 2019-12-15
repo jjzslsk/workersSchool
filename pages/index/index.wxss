@@ -70,7 +70,7 @@ box-sizing: border-box;
 			.effect-picture .recommend-list{padding: 5px 10px 0 10px;}
 		.effect-picture .recommend-list .recommend-item{padding:0 0 8px 0;border-bottom: 1px solid #DDDDDD;margin-bottom: 12px}
 		.effect-picture .recommend-list .recommend-item .recommend-item-img{width: 100%;}
-		.effect-picture .recommend-list .recommend-item .recommend-item-img image{width: 100%;height: 8rem;}
+		.effect-picture .recommend-list .recommend-item .recommend-item-img image{width: 100%;height: 170px;}
 		.effect-picture .recommend-list .recommend-item .recommend-item-info{font-size: .8rem;color: #000000;font-weight: bold;padding: 12px 0;}
 		
 		.effect-picture .recommend-list .recommend-item .ws-card-footer{width: 100%;height: 2rem;line-height: 2rem;}

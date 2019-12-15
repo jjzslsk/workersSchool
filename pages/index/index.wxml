@@ -60,12 +60,12 @@
     <view class="designer-area">
           <view class="designer-itemr">
             <view class="designer-itemr-title">设计师</view>
-            <view class="designer-itemr-right">更多</view>
+            <view class="designer-itemr-right" bindtap="stylistCilck">更多</view>
           </view>
 
       <view class="aui-grid">
         <view class="aui-row">
-          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item">
+          <view class="aui-col-5 click-item-ser"  wx:for="{{designerList}}" wx:key="id" wx:for-item="item" bindtap='openWorkerDetail'>
             <view class="designer-ave">
               <image src='{{item.aveUrl}}' />
             </view>

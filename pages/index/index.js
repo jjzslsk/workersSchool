@@ -112,7 +112,7 @@ Page({
     })
     var that = this
 
-    app.httpsDataGet('/shop/getArticleListForSchool', Param,
+    app.httpsDataGet('/school/getArticleListForSchool', Param,
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {
@@ -132,6 +132,13 @@ Page({
       }
     )
 
+  },
+
+  openWorkerDetail: function (e) {
+    var id = '1';
+    wx.navigateTo({
+      url: '/pages/workerDetail/workerDetail?id=' + id
+    })
   },
 
   itemClick: function(){
@@ -161,6 +168,12 @@ Page({
   classifyCilck: function(){
     wx.navigateTo({
       url: '../classify/classify'
+    })
+  },
+
+  stylistCilck: function(){
+    wx.navigateTo({
+      url: '../stylist/stylist'
     })
   },
 
@@ -258,6 +271,7 @@ Page({
     })
   },
 
+  //获取第一张图片
   getFirstPic(str) {
     let data = ''
     str.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/, function(match, capture) {
@@ -280,7 +294,7 @@ Page({
     title: '加载中',
   })
    var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
-  app.httpsDataGet('/shop/getArticleListForSchool', Param,
+   app.httpsDataGet('/school/getArticleListForSchool', Param,
     function (res) {
       if (res.status) {
         if (res.data.length > 0) {

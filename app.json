@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/stylist/stylist",
+    "pages/workerDetail/workerDetail",
+    "pages/workerDetail0/workerDetail0",
     "pages/classify/classify",
     "pages/me/me",
     "editor/editor",
@@ -9,6 +12,7 @@
     "pages/lookWorkers/lookWorkers",
     "pages/bindPhone/bindPhone",
     "pages/mall/mall",
+    "pages/articleList/articleList",
 
     "pages/workerType/workerType",
     "pages/wxSubscription/wxSubscription",
@@ -17,7 +21,6 @@
     "pages/usualQuestion/usualQuestion",
     "pages/suggest/suggest",
     "pages/suggestProRes/suggestProRes"
-        
   ],
     "tabBar": {
       "color": "#666666",

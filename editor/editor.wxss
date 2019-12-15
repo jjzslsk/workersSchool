@@ -107,7 +107,7 @@ padding: 6px 60px;
 
 .tag-box{margin: 0 0.5rem 0.5rem 0.5rem;}
 .wrap-item{display: flex;flex-wrap: wrap;padding: .4rem;}
-.item-but {height: 1.4rem;line-height: 1.4rem;text-align: center;min-width: 3rem;font-size: 12px;border-radius: 6px;background-color: rgb(238, 238, 238);color: #999999;padding: 1px 3px;margin: 0 .2rem;}
+.item-but {height: 1.4rem;line-height: 1.4rem;text-align: center;min-width: 3rem;font-size: 12px;border-radius: 6px;background-color: rgb(238, 238, 238);color: #999999;padding: 1px 3px;margin: .2rem .2rem;}
 .tag-item {position: relative;display: inline-block;height: 18px;line-height: 18px;padding: 0 4px;border-radius: 2px;background: #fff;font-size: 11px;vertical-align: middle;border: 1rpx solid #dddee1;color: #19be6b;background: #fff;border-color: #19be6b;}
 .badge-box {padding: .5rem;position: absolute;top: -15px;right: -15px;z-index: 3;}
 .badge-but {color: #fff;border-radius:10px;line-height: .8rem;text-align: center;width: .8rem;height: .8rem;background-color: red;}

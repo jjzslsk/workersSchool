@@ -1,0 +1,45 @@
+<view class="body">
+  <view class='page-content'>
+  <view class='classify2'>
+    <view class='classify2-item classify2-active' bindtap=''>综合</view>
+    <view class="classify2-item" bindtap=''>工龄</view>  
+    <view class="classify2-item" bindtap=''>评价</view>   
+  </view>
+
+  
+  
+  <scroll-view scroll-y class='scroll-area'>
+    <view class='worker-list' wx:for="{{userList}}" wx:for-item="item" wx:key="CLIENT_ID">
+      <view class='aui-flex-col aui-flex-middle' bindtap='' wx:key="">
+        <view class='aui-flex-item-3' bindtap='openWorkerDetail' data-id="{{item}}">
+          <image class='list-user-avatar' src='{{item.AVATAR}}' wx:if="{{item.AVATAR}}"></image>
+          <image class='list-user-avatar' wx:else src='/images/head.png' ></image>
+        </view>
+        <view class='aui-flex-item-9' bindtap='openWorkerDetail' data-id="{{item}}">
+          <view class="name-box">
+            <view class="">{{item.CLIENT_ACCOUNT}}</view>
+            <!-- <view class="make">预约</view> -->
+          </view>
+          <view class='post-time'>
+            <text class='user-text'>设计师等级:{{item.CLIENT_LEVEL}}级</text>
+            <text class='user-text border-l'>12年工龄</text>
+            <text class='user-text border-l'>粉丝:30人</text>
+            <!-- <text class='distance'>123km</text> -->
+          </view>
+          <view class='motto aui-ellipsis-1'>个性签名:用心体验，打造舒适健康的家</view>
+        </view>
+          <view class="worker-content" wx:if="{{item.article}}">
+            <view class="content-title" bindtap='articleList' data-userId='{{item.CLIENT_ID}}'>
+              <view class="">设计方案</view>
+              <view class="title-more" bindtap="articleList" data-userId='{{item.CLIENT_ID}}'>更多></view>
+            </view>
+            <view class="content-box aui-row">
+                <view wx:for='{{item.article.imgUrl}}' wx:for-item="items" bindtap='diaryDetail' data-item="{{item}}" wx:key="imgUrl" class="content-item"><image class='content-img' src='{{items}}'></image></view>
+            </view>
+          </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+</view>

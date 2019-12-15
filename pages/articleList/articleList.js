@@ -243,8 +243,8 @@ Page({
       title: '加载中',
     })
     if(detail) {
-      var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&searchKey=' + detail + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
-      app.httpsDataGet('/shop/getArticleListForSchool', Param,
+      var Param = 'createName=' + detail + '&type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
+      app.httpsDataGet('/school/getArticleListForSchool', Param,
       function (res) {
         if (res.status) {
           if (res.data.length > 0) {
@@ -255,7 +255,6 @@ Page({
             that.setData({
               recommendList: recommendList,
             });
-
           }else{
             that.setData({
               recommendList: [],
@@ -269,34 +268,6 @@ Page({
       }
     )
     }
-    else if (!detail){
-      var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
-      app.httpsDataGet('/shop/getArticleListForSchool', Param,
-      function (res) {
-        if (res.status) {
-          if (res.data.length > 0) {
-            var recommendList = res.data.map((item)=>{
-              var funGetFirstPic = that.getFirstPic(item.articleNotes)
-              return {...item,itemImg:funGetFirstPic}
-            })
-            that.setData({
-              recommendList: recommendList,
-            });
-
-          }else{
-            that.setData({
-              recommendList: [],
-            });
-          }
-        }
-      },
-      function (res) {
-        //失败
-        wx.hideLoading()
-      }
-    )
-    }
-
   },
 
     //获取第一张图片
@@ -312,8 +283,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getGoodsCollectList()
-    this.handleChange()
+    // this.getGoodsCollectList()
+    this.handleChange(options.userid)
+    console.log (JSON.stringify(options))
   },
 
   /**
