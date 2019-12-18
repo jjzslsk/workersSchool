@@ -87,7 +87,7 @@ Page({
       current: detail.key,
     });
     if(!detail.key) return
-    var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&classParentId=' + detail.key + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
+    var Param = 'type=Article_CLASS_1' + '&classParentId=' + detail.key + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
     wx.showLoading({
       title: '加载中',
     })
@@ -289,7 +289,7 @@ Page({
   wx.showLoading({
     title: '加载中',
   })
-   var Param = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
+   var Param = 'type=Article_CLASS_1' + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;
    app.httpsDataGet('/school/getArticleListForSchool', Param,
     function (res) {
       if (res.status) {

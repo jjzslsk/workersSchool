@@ -71,10 +71,11 @@ Page({
   },
 
   onInputChange: function (e) {
-    var val = e.detail.value
-    this.setData({
-      content: val
-    })
+    var that = this;
+    var str = app.filterEmoji(e.detail.value)
+    that.setData({
+      content: app.filterSpace(str)
+    });
   },
 
   comment: function (e) {
@@ -168,7 +169,7 @@ Page({
 
 
     
-    var aParam1 = 'shopId=' + app.globalData.userId + '&type=Article_CLASS_1&articleId=' + that.data.lid + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;;
+    var aParam1 = 'type=Article_CLASS_1&articleId=' + that.data.lid + '&startPage=' + that.data.startPage + '&recordSize=' + that.data.recordSize;;
     wx.showLoading({
       title: '加载中',
     })

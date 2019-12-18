@@ -1,15 +1,15 @@
   
 <scroll-view scroll-y class='scroll-area'>
   <i-panel wx:if="{{isShow}}" title="基础用法">
-    <i-input value="{{ articleTitle }}" bind:change="articleTitle" type="textarea" title="标题" placeholder="请输入标题(必填)" />
-    <i-input value="{{ articleDescribe }}" bind:change="articleDescribe" type="textarea" title="描述" placeholder="请输入内容(最多50字)" maxlength="50" />
+    <i-input class="title-content" value="{{ articleTitle }}" bind:change="articleTitle" type="textarea" title="标题" placeholder="请输入标题(必填)" />
+    <i-input class="title-content" value="{{ articleDescribe }}" bind:change="articleDescribe" type="textarea" title="描述" placeholder="请输入内容(最多50字)" maxlength="50" />
     <i-tabs current="{{ current_scroll2 }}" bindchange="handleChangeScroll2">
       <i-tab  wx:for="{{advanced}}" wx:for-item="item" wx:key="SYS_PARAMS_CLASS_ID" key="{{item.SYS_PARAMS_CLASS_ID}}" title="{{item.CLASS_NAME}}"></i-tab>
     </i-tabs>
     <view class="wrap-item">
       <view class="item-but" wx:for="{{goodsCollectList}}" bindtap="ListBtnclick" data-items="{{items}}" data-classname="{{items.CLASS_NAME}}" wx:for-item="items" wx:key="SYS_PARAMS_CLASS_ID" wx:if="{{current_scroll2 == items.CLASS_PARENT_ID}}" type="success" shape="circle" size="small">{{items.CLASS_NAME}}</view>
     </view>
-    <view class="tag-box">
+    <view class="tag-box" wx:if="{{searchObj.length}}">
       <view class="tag-item" wx:for="{{searchObj}}" wx:key="index" wx:for-item="item" wx:for-index="index" color="green" style="margin-right:10px;">
         {{item.CLASS_NAME}}
         
@@ -23,8 +23,8 @@
   <!-- <view class="container" style="height:{{editorHeight}}px;"> -->
   <view class="toolbar" catchtouchend="format" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
     <i class="iconfont icon-charutupian" data-index='2' catchtouchend="insertImage"></i>
-    <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
-    <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
+    <!-- <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+    <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i> -->
     <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
     <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
     <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>

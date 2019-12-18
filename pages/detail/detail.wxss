@@ -8,7 +8,7 @@
 .head .main .main-text {font-size: .75rem;color: #999999;padding:4px 0}
 .head .bottm {display: flex;align-items: center;padding: 0 8px;}
 .head .bottm image {height: 1.8rem;width: 1.8rem;border-radius: 50%;}
-.head .bottm .bot-info {margin-left:6px;font-size: 14px;font-weight: inherit;}
+.head .bottm .bot-info {margin-left:6px;font-size: 0.7rem;color: #757575;padding-left: 4px;}
 
 .content {height: auto;padding:8px;background: #fff;border-radius: 8px;}
 .view-count{text-align: right;font-size: 0.7em;padding: 5px;color: #999999;box-sizing: border-box;}

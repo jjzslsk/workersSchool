@@ -706,13 +706,13 @@ App({
   },
 
   globalData: {
-    // url: 'https://www.zxj888.cn:8443', //正式环境接口域名
-    // urlFs: 'https://www.zxj888.cn:9443', //正式环境接口域名
-    // websocketUrl: 'wss://zxj888.cn:9443/zxj/websocket', //正式环境websocket
+    url: 'https://www.zxj888.cn:8443', //正式环境接口域名
+    urlFs: 'https://www.zxj888.cn:9443', //正式环境接口域名
+    websocketUrl: 'wss://zxj888.cn:9443/zxj/websocket', //正式环境websocket
 
-    url: 'https://www.zxjtest.xyz', //开发环境接口域名
-    urlFs: 'https://www.zxjtest.xyz:9443', //开发环境接口域名
-    websocketUrl: 'wss://zxjtest.xyz:9443/zxj/websocket',//开发环境websocket
+    // url: 'https://www.zxjtest.xyz', //开发环境接口域名
+    // urlFs: 'https://www.zxjtest.xyz:9443', //开发环境接口域名
+    // websocketUrl: 'wss://zxjtest.xyz:9443/zxj/websocket',//开发环境websocket
 
     baiduUrl: 'https://api.map.baidu.com', //百度ip
     realTimeCustomer: '60E246CB7star_red.pngdddddddddB645273DCF2DC4E18B4AEF9',//customer(快递100实时查询接口)
@@ -746,4 +746,17 @@ App({
     name: '装小匠客服',
     avatar: '/images/orderTypeIcon/kefu.png'
   },
+
+  /** 替换emoji表情 */
+  filterEmoji:function(name){
+    var str = name.replace(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/ig, "");
+    return str;
+    },
+    /** 替换空格键2 */
+     filterSpace:function(name){
+    var str = name.replace(/\s+/g, '');
+    return str;
+    },
+
 })
+

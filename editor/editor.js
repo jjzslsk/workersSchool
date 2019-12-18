@@ -54,14 +54,19 @@ Page({
       // },
   },
 
+
   articleTitle(e){
-    this.setData({
-      articleTitle: e.detail.detail.value
+    var that = this;
+    var str = app.filterEmoji(e.detail.detail.value)
+    that.setData({
+      articleTitle: app.filterSpace(str)
     });
   },
   articleDescribe(e){
-    this.setData({
-      articleDescribe: e.detail.detail.value
+    var that = this;
+    var str = app.filterEmoji(e.detail.detail.value)
+    that.setData({
+      articleDescribe: app.filterSpace(str)
     });
   },
 
@@ -191,32 +196,7 @@ Page({
   },
 
 
-  onLoad() {
-    const platform = wx.getSystemInfoSync().platform
-    const isIOS = platform === 'ios'
-    this.setData({ isIOS})
-    const that = this
-    this.updatePosition(0)
-    let keyboardHeight = 0
-    wx.onKeyboardHeightChange(res => {
-      if (res.height === keyboardHeight) return
-      const duration = res.height > 0 ? res.duration * 1000 : 0
-      keyboardHeight = res.height
-      setTimeout(() => {
-        wx.pageScrollTo({
-          scrollTop: 0,
-          success() {
-            that.updatePosition(keyboardHeight)
-            that.editorCtx.scrollIntoView()
-          }
-        })
-      }, duration)
-
-    })
-
-    this.getOrderId()
-    this.getGoodsCollectList()
-  },
+ 
 
     //获取商品收藏列表
     getGoodsCollectList: function() {
@@ -625,7 +605,7 @@ Page({
       articleClassId: "1811201459000283",   //写死
       searchKey:that.data.searchName,   //用户发表图文时勾选的分类,英文逗号分隔
     }
-    app.httpsDataPost('/school/createArticle', param,
+    app.httpsDataPost('/shop/createArticle', param,
       function (ret) {
         //成功
         if (ret.status) {
@@ -694,11 +674,60 @@ Page({
     }
   },
 
+  onLoad() {
+
+  },
+
   /**
    * 生命周期函数--监听页面显示
   */
   onShow: function() {
-    this.getUserInfo()
+    if (app.globalData.userInfo == undefined || app.globalData.userInfo == null || app.globalData.userInfo == '') {
+      wx.showModal({
+        title: '提示',
+        content: '您未登录，请先登录再操作。是否前往登录？1',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/bindPhone/bindPhone'
+            })
+          }else if (res.cancel) {
+            wx.switchTab({
+              url: '/pages/index/index',
+              })
+          }
+        }
+      })
+      return
+    }else {
+      this.getUserInfo()
+
+      const platform = wx.getSystemInfoSync().platform
+      const isIOS = platform === 'ios'
+      this.setData({ isIOS})
+      const that = this
+      this.updatePosition(0)
+      let keyboardHeight = 0
+      wx.onKeyboardHeightChange(res => {
+        if (res.height === keyboardHeight) return
+        const duration = res.height > 0 ? res.duration * 1000 : 0
+        keyboardHeight = res.height
+        setTimeout(() => {
+          wx.pageScrollTo({
+            scrollTop: 0,
+            success() {
+              that.updatePosition(keyboardHeight)
+              that.editorCtx.scrollIntoView()
+            }
+          })
+        }, duration)
+  
+      })
+  
+      this.getOrderId()
+      this.getGoodsCollectList()
+
+    }
   }
 
 })

@@ -32,6 +32,7 @@ page {
 
   /* 新增 */
   font-size: 14px;
+  background: #eee;
 }
 
 .ql-active {
@@ -49,7 +50,7 @@ page {
 .toolbar {
   box-sizing: border-box !important;
   padding: 0 10px;
-  height: 50px;
+  height: 40px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -100,4 +101,5 @@ padding: 6px 60px;
 .tag-item {position: relative;display: inline-block;height: 18px;line-height: 18px;padding: 0 4px;border-radius: 2px;background: #fff;font-size: 11px;vertical-align: middle;border: 1rpx solid #dddee1;color: #19be6b;background: #fff;border-color: #19be6b;}
 .badge-box {padding: .5rem;position: absolute;top: -15px;right: -15px;z-index: 3;}
 .badge-but {color: #fff;border-radius:10px;line-height: .8rem;text-align: center;width: .8rem;height: .8rem;background-color: red;}
+.i-input-title{width: 3rem !important;background: red;}
 

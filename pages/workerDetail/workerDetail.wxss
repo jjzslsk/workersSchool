@@ -4,7 +4,7 @@
 
 .base-info{text-align: center;padding: 20px 0;margin-bottom: 10px;background: #FFFFFF;}
 
-.userscore{margin-bottom: 5px;font-size: 1em;width: 100%;float: left; display: flex;justify-content: center;}
+.userscore{margin-bottom: 5px;font-size: 1em;width: 100%;display: flex;justify-content: flex-start;}
 /* .score{margin-left: 38%;} */
 .userscore image{float: left;width:13px;height: 13px;}
 .scoreinfo{float: left;margin-left: 10px;font-size: 0.8em !important;line-height: 15px;color: #fff;}
@@ -13,7 +13,7 @@
 .margin-b-10{margin-bottom: 10px;}
 
 
-.work-type{border:1px #FE5401 solid;border-radius: 10px;float: left;text-align: center;height: 20px;line-height: 20px;margin-right: 10px;font-size: 0.8em;color: #FE5401;padding: 0 5px;margin-top: 5px;}
+.work-type{border:1px #FE5401 solid;border-radius: 10px;float: left;text-align: center;height: 20px;line-height: 20px;margin: 1px 2px 1px 2px;font-size: 0.8em;color: #FE5401;padding: 0 5px;}
 .case-list{display: flex;justify-content: space-between;width:100%;box-sizing:border-box;}
 .case-item{width:33.333333%;padding:0 10px; box-sizing:border-box;text-align: center;}
 .case-name{width:100%;text-align: center;}
@@ -41,7 +41,7 @@
 .commit-btn{float:left;width: 50%;height: 46px;line-height: 46px;font-size: 1.2em;background: #FFFFFF;color: #259B24;text-align: center;}
 .commit-btn2{float:left;width: 50%;height: 46px;line-height: 46px;font-size: 1.2em;background: #259B24;color: #FFFFFF;text-align: center;}
 .commit-btn3{float:left;width: 100%;height: 46px;line-height: 46px;font-size: 1.2em;background: #259B24;color: #FFFFFF;text-align: center;}
-.hpl{margin-left: 20px;color: #999999;}
+.hpl{margin-left: 5px;color: #fff;}
 .no-pic{text-align: center;padding: 10px;background: #FFFFFF;color: #999999;font-size: 0.7em;}
 .lm{height: 80px;border-radius: 5px;width: 100%;}
 .list-img{padding: 5px !important;box-sizing:border-box;}
@@ -64,18 +64,22 @@
     align-items: center;
 }
 
-.userinfo{margin-bottom: 5px;width:100%;box-sizing: border-box;position: relative;height: 12rem;}
-.userinfo-content {position: absolute;top: 0;left: 0;padding: 20px;}
-.info-item{border-left: 2px #41CC8E solid;padding: 0 5px;box-sizing: border-box;font-size: 0.7em;}
-.avatar{width:60px;height:60px;border-radius: 50%;margin-left:calc(50% - 30px);}
+.userinfo{width:100%;box-sizing: border-box;position: relative;height: 6.2rem;}
+.userinfo-content {position: absolute;top: 0;left: 0;padding: 5px 15px 5px 15px;}
+.info-item{border-left: 2px #41CC8E solid;padding: 0 1px;box-sizing: border-box;font-size: 0.7em;}
+.avatar-box {display: flex;align-items: center;justify-content: center;}
+.avatar{width:40px;height:40px;border-radius: 50%;}
 .username{margin-bottom: 5px;font-size: 0.9em;color: #fff;text-align: center;}
 .margin-t-10{margin-top: 10px;color: #fff;}
 
 .info-title{padding: 10px 0;background: #FFFFFF;margin: 5px 5px 0 5px;border-radius:4px 4px 0 0;}
 .info-title-content{border-left: 0px #41CC8E solid;font-size: 0.8em;padding-left: 10px;color: #41CC8E;}
 .info-content{padding:10px 15px;background: #FFFFFF;overflow: hidden;margin: 0 5px 5px 5px;border-radius: 0 0 4px 4px;color: #666666;font-size: 0.8em;}
+.info-title-item{padding: 10px 0;background: #FFFFFF;margin: 5px 5px 0 5px;border-radius:4px;}
+.info-item-content{background: #FFFFFF;border-radius: 0 0 4px 4px;color: #41CC8E;font-size: 0.8em;display: flex;align-items: center;justify-content: center;}
+.item-content {color: #666666;font-size: 0.8em;}
 
-.cmt-item{padding: 5px;}
+/* .cmt-item{padding: 5px;} */
 .more{position: absolute;font-size: 0.7em;right: 10px;box-sizing:border-box;margin-top: -20px;}
 
 .padded-10{padding: 10px;box-sizing:border-box;}
@@ -94,7 +98,7 @@
 
 .img-video{position: absolute;width: 30px;height: 30px;margin-top: 25px;left: 50%;margin-left: -15px;}
 
-.focus-btn{background: #41CC8E;color: #Ffffff;font-size: 0.8em;padding: 3px 8px;border-radius: 5px;position: absolute;right: 0;margin-top: 20px;}
+.focus-btn{background: #41CC8E;color: #Ffffff;font-size: 0.8em;padding: 3px 8px;border-radius: 5px;position: absolute;right: 1rem;margin-top: -7px;}
 .focused-btn{background: #DDDDDD;color: #999999;font-size: 0.8em;padding: 3px 8px;border-radius: 5px;position: absolute;right: 0;margin-top: 20px;}
 
 .ellipsis-2 {
@@ -126,3 +130,6 @@
 .recommend-list .no-data{padding: 15px;display: flex;align-items: center;justify-content: center;}
 .recommend-list .no-data-img{width:20rem;height: 20rem;}
 /* end */
+
+.user-info {height: 100%;}
+.item-more {max-width: 50%;position: relative;font-size: 0.7rem;color: #757575;text-align: right;}
