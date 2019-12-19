@@ -64,14 +64,8 @@ Page({
       {id:'ws_activity04',imgurl:'/images/course/ws_activity04.png'}
     ],
 
-    designerList:[//设计师
-      // {id:'designerave01',aveUrl:'/images/course/designerave01.png'},
-      // // {id:'designerave02',aveUrl:'/images/course/designerave02.png'},
-      // {id:'designerave03',aveUrl:'/images/course/designerave03.png'},
-      // { id: 'designerave04', aveUrl: '/images/course/designerave04.png' },
-      // {id:'designerave05',aveUrl:'/images/course/designerave05.png'},
-      // {id:'designerave06',aveUrl:'/images/course/designerave06.png'},
-    ],
+    //设计师
+    designerList:[],
 
     recommendList:[],
 

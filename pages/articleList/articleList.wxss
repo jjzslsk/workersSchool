@@ -29,5 +29,8 @@ i-badge {display: flex;align-items: center;justify-content: center;}
 .unfold{background: #fff;width: 100%;position: fixed;top: 0;left: 0;font-size: .5rem;height: 2rem;padding: .2rem;display: flex;align-items: center;justify-content: center;border-bottom: 1px #eeeeee solid;}
 .unfold .unfold-img{height: .8rem;width: .8rem;}
 
+.item-name {font-size: 0.7rem;color: #757575;padding-left: 4px;}
+
+
 /* .top-box {padding-left: .5rem;} */
 /* .class-scroll {padding-left: .5rem;} */

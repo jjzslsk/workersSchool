@@ -25,7 +25,7 @@
       </view> -->
 
       <view class="aui-flex-item-3 user-info margin-t-10">
-      <view class="info-wrap margin-t-10">
+      <view class="info-wrap">
           <view class="avatar-box">
             <image bindtap='userImg' class='avatar' show-menu-by-longpress='true'  src='{{detail.AVATAR}}' wx:if="{{detail.AVATAR}}"/>
             <image class='avatar' src='/images/head.png' wx:else/>

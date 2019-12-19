@@ -32,7 +32,7 @@
     <view class="content" hover-class="none" hover-stop-propagation="false">
         <rich-text nodes="{{detailData.articleNotes}}"></rich-text>
     </view>
-    <view class="view-count">浏览量{{detail.BROWSE_NUMBER}}</view>
+    <view class="view-count">浏览量{{detailData.browseNumber}}</view>
 
       <view class="bg-white padded-10 margin-t-10 padded-b-0 margin-b-10">
       <view class="cmt-title bg-white">最新评论</view>

@@ -319,7 +319,6 @@ Page({
     var that = this
     app.httpsDataGet('/utils/getPK', '',
       function (res) {
-        console.log(JSON.stringify(res))
         if (res.status) {
           that.setData({
             orderId: res.data
@@ -484,7 +483,6 @@ Page({
       clientId: app.globalData.userId,
       attNoWater: '1'
     }
-          
     wx.uploadFile({
       url: app.globalData.url +'/upFile',
       filePath: pickedImgs[uploadedImgIndex],
@@ -675,7 +673,7 @@ Page({
   },
 
   onLoad() {
-
+    this.getOrderId()
   },
 
   /**
@@ -724,7 +722,6 @@ Page({
   
       })
   
-      this.getOrderId()
       this.getGoodsCollectList()
 
     }

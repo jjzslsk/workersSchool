@@ -34,8 +34,8 @@ Page({
 
   setViewCount: function (options) {
     var that = this
-    var p = 'SUBJECT_ID=' + that.data.lid + '&CLIENT_ID=' + app.globalData.userId + '&BROWSE_NUMBER=1'
-    app.httpsPlatformClass('upBbsBrowseNum', p,
+    var p = 'ARTICLE_ID=' + that.data.lid + '&CLIENT_ID=' + app.globalData.userId + '&BROWSE_NUMBER=1'
+    app.httpsPlatformClass('upArticleBrowseNum', p,
       function (res) {
 
       },
@@ -133,11 +133,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    that.setViewCount(options)
     that.setData({
       lid:options.articleId,
       picListUrl:options.picListUrl
     })
+    that.setViewCount(options)
     var p = 'SUBJECT_ID=' + that.data.lid;
     app.httpsGetDatByPlatform('bbs_subject_info', 'map', p,
       function (res) {

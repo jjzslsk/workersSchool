@@ -13,6 +13,18 @@ Page({
     myBalance: '0.00'
   },
 
+  editorCilck(){
+    wx.switchTab({
+      url: '/editor/editor',
+      })
+  },
+
+  articleList(e){
+    wx.navigateTo({
+      url: '/pages/articleList/articleList?userid=' + e.currentTarget.dataset.userid
+    }) 
+  },
+
   /**验证码登录状态 */
   checkLogin: function () {
     var resule = true;
